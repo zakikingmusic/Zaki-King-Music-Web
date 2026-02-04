@@ -1,0 +1,759 @@
+/* ========================================
+   ستايل أسود + أصفر ذهبي 👑
+   ======================================== */
+
+/* الألوان */
+:root {
+    --black: #000000;
+    --dark-grey: #0a0a0a;
+    --gold: #ffd700;
+    --dark-gold: #b8860b;
+    --bright-yellow: #ffea00;
+    --white: #ffffff;
+    --grey: #666666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+/* ========================================
+   الأشكال الهندسية المتحركة
+   ======================================== */
+.geometric-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.15;
+}
+
+.circle {
+    width: 300px;
+    height: 300px;
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    top: 10%;
+    right: 5%;
+    animation: rotate 20s linear infinite, float 6s ease-in-out infinite;
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    border: 3px solid var(--dark-gold);
+    top: 50%;
+    left: 10%;
+    animation: rotate 15s linear infinite reverse, float 8s ease-in-out infinite;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 250px solid var(--gold);
+    opacity: 0.1;
+    top: 60%;
+    right: 15%;
+    animation: rotate 25s linear infinite, float 10s ease-in-out infinite;
+}
+
+.hexagon {
+    width: 150px;
+    height: 87px;
+    background: transparent;
+    border-top: 3px solid var(--bright-yellow);
+    border-bottom: 3px solid var(--bright-yellow);
+    top: 80%;
+    left: 30%;
+    animation: rotate 18s linear infinite, float 7s ease-in-out infinite;
+}
+
+.line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.3;
+}
+
+.line1 {
+    width: 100%;
+    top: 20%;
+    animation: slide-right 8s linear infinite;
+}
+
+.line2 {
+    width: 80%;
+    top: 50%;
+    right: 0;
+    animation: slide-left 10s linear infinite;
+}
+
+.line3 {
+    width: 100%;
+    top: 75%;
+    animation: slide-right 12s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+}
+
+@keyframes slide-right {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
+@keyframes slide-left {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+/* ========================================
+   القائمة العلوية
+   ======================================== */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+}
+
+.logo {
+    font-family: 'Audiowide', cursive;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px var(--gold);
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.nav-links a:hover::before {
+    width: 100%;
+    right: auto;
+    left: 0;
+}
+
+/* ========================================
+   الأقسام
+   ======================================== */
+section {
+    padding: 8rem 5%;
+    position: relative;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+/* ========================================
+   الصفحة الرئيسية
+   ======================================== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-family: 'Audiowide', cursive;
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    letter-spacing: 3px;
+    color: var(--white);
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.8),
+                 0 0 60px rgba(255, 215, 0, 0.5);
+    animation: glow-gold 2s ease-in-out infinite;
+}
+
+@keyframes glow-gold {
+    0%, 100% {
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.8),
+                     0 0 60px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(255, 215, 0, 1),
+                     0 0 80px rgba(255, 215, 0, 0.7);
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--grey);
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1.2rem 3.5rem;
+    background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+    color: var(--black);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    border: 2px solid var(--gold);
+}
+
+.cta-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+    background: var(--gold);
+}
+
+/* موجات صوتية */
+.sound-waves {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.wave {
+    width: 8px;
+    height: 50px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    border-radius: 10px;
+    animation: wave-pulse 1s ease-in-out infinite;
+}
+
+.wave:nth-child(1) { animation-delay: 0s; }
+.wave:nth-child(2) { animation-delay: 0.1s; }
+.wave:nth-child(3) { animation-delay: 0.2s; }
+.wave:nth-child(4) { animation-delay: 0.3s; }
+.wave:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes wave-pulse {
+    0%, 100% { 
+        height: 50px;
+        opacity: 0.5;
+    }
+    50% { 
+        height: 120px;
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   عناوين الأقسام
+   ======================================== */
+.section-title {
+    font-family: 'Audiowide', cursive;
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    color: var(--white);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1.5rem auto;
+    box-shadow: 0 0 10px var(--gold);
+}
+
+/* ========================================
+   قسم نبذة عني
+   ======================================== */
+.about-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+    background: var(--dark-grey);
+}
+
+.about-image::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.about-text h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--gold);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.about-text p {
+    font-size: 1.15rem;
+    line-height: 2;
+    color: var(--grey);
+    margin-bottom: 1.5rem;
+}
+
+/* ========================================
+   قسم الموسيقى
+   ======================================== */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.music-card {
+    background: var(--dark-grey);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    position: relative;
+}
+
+.music-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.4);
+    border-color: var(--gold);
+}
+
+.music-cover {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(135deg, #1a1400, #332800);
+    position: relative;
+    overflow: hidden;
+}
+
+.music-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-geometry {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+}
+
+.geo-shape {
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    animation: pulse-rotate 3s ease-in-out infinite;
+    box-shadow: 0 0 20px var(--gold);
+}
+
+@keyframes pulse-rotate {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+        opacity: 1;
+    }
+}
+
+.music-info {
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.music-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--white);
+}
+
+.music-info p {
+    color: var(--grey);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.listen-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.listen-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+    transform: translateX(-5px);
+}
+
+/* ========================================
+   قسم المعرض
+   ======================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    background: var(--dark-grey);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.4s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(184, 134, 11, 0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-shape {
+    width: 80px;
+    height: 80px;
+    border: 3px solid white;
+    transform: rotate(45deg);
+    animation: rotate 4s linear infinite;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* ========================================
+   قسم التواصل
+   ======================================== */
+.contact-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-content p {
+    font-size: 1.3rem;
+    color: var(--grey);
+    margin-bottom: 4rem;
+    line-height: 2;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.contact-card {
+    background: var(--dark-grey);
+    padding: 2.5rem 1.5rem;
+    border-radius: 15px;
+    text-decoration: none;
+    color: var(--white);
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.contact-card:hover::before {
+    left: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+}
+
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.contact-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--gold);
+}
+
+.contact-card p {
+    font-size: 0.95rem;
+    color: var(--grey);
+}
+
+/* ========================================
+   الفوتر
+   ======================================== */
+footer {
+    text-align: center;
+    padding: 3rem 5%;
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 2px solid var(--gold);
+}
+
+footer p {
+    color: var(--grey);
+    font-size: 1rem;
+}
+
+.highlight {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+/* ========================================
+   التصميم المتجاوب
+   ======================================== */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    .section-title { font-size: 2.5rem; }
+    .nav-links { gap: 1.2rem; font-size: 0.9rem; }
+    .about-content { grid-template-columns: 1fr; gap: 2rem; }
+    section { padding: 5rem 5%; }
+    .logo { font-size: 1.5rem; }
+    nav { padding: 1rem 3%; }
+    .contact-grid { grid-template-columns: 1fr 1fr; }
+}
+/* ========================================
+   تحديثات الشعار والأيقونات
+   ======================================== */
+
+/* شعار القائمة مع صورة */
+.logo {
+    font-family: 'Audiowide', cursive;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* صورة الشعار */
+.logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* أيقونات Font Awesome */
+.contact-icon i {
+    font-size: 3.5rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .contact-icon i {
+    transform: scale(1.2);
+}
+
+/* ألوان الأيقونات */
+.fa-instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.fa-tiktok {
+    color: #00f2ea;
+}
+
+.fa-envelope {
+    color: var(--gold);
+}
+
+.fa-youtube {
+    color: #ff0000;
+}
+
+.fa-spotify {
+    color: #1db954;
+}
+
+/* تحديثات للموبايل */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.2rem;
+        gap: 0.5rem;
+    }
+    
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .contact-icon i {
+        font-size: 2.5rem;
+    }
+}
