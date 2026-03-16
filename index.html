@@ -62,7 +62,7 @@
         <div class="hero-content">
             <h1>Zaki King Music</h1>
             <p class="hero-subtitle">Where Melodies Meet Emotions</p>
-            <a href="#about" class="cta-btn">Discover More</a>
+            <a href="#music" class="cta-btn">Discover More</a>
         </div>
         <div class="sound-waves">
             <div class="wave"></div>
@@ -81,8 +81,8 @@
             </div>
             <div class="about-text">
                 <h3>About Zaki King Music</h3>
-                <p>Zaki King Music is a musician living in Algeria who began his musical career in 2023 with his first YouTube channel. Among his most famous works is a song called "The Drop," and he is also the composer of an epic soundtrack recently released called "Steel Throne."</p>
-                <p>It was established in 2026 and is also known for remixing songs by other artists, but this name is still gaining popularity and is not well-known at the moment, but it will become more widespread in the future.</p>
+                <p>Zaki King Music is an independent musician and producer from Algeria who began his musical journey in 2023. Known for blending electronic, epic, and cinematic soundscapes, his music takes listeners on an emotional journey.</p>
+                <p>Among his most recognized works are "The Drop", "Steel Throne", and "Dimensions Of Memory" — each representing a unique chapter in his evolving sound. With a fifth release on the horizon, Zaki King Music continues to grow and push creative boundaries.</p>
             </div>
         </div>
     </section>
@@ -120,9 +120,16 @@
                 <div class="music-info">
                     <h3>Dimensions Of Memory</h3>
                     <p>Music based on string instruments that evokes feelings of calm and tranquility</p>
-                    <a href="https://open.spotify.com/track/4W1HVNX3ohK6YTajVvfbbi?si=I8r4hkMuTJSHS91wEWHKog" class="listen-btn" target="_blank">Listen Now</a>
+                    <a href="https://open.spotify.com/artist/5SY0LBMYUXGyoj2UwxLSXu/" class="listen-btn" target="_blank">Listen Now</a>
                 </div>
             </div>
+        </div>
+
+        <!-- زر View All Releases -->
+        <div style="text-align:center; margin-top: 3.5rem;">
+            <a href="releases.html" class="releases-btn">
+                View All Releases &nbsp; →
+            </a>
         </div>
     </section>
 
@@ -190,6 +197,32 @@
     <footer>
         <p>2026 All rights reserved | <span class="highlight">Zaki King Music</span></p>
     </footer>
+
+    <style>
+        .releases-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 3rem;
+            background: transparent;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            color: #00d4ff;
+            text-decoration: none;
+            font-family: 'Audiowide', cursive;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+        }
+        .releases-btn:hover {
+            background: rgba(0, 212, 255, 0.08);
+            border-color: #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            transform: translateY(-3px);
+        }
+    </style>
 
     <script>
         function toggleMenu() {
