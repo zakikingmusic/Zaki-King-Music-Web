@@ -156,6 +156,11 @@
         <!-- طبقة الانتقال الكاملة -->
         <div class="launch-overlay" id="launchOverlay">
             <div class="lo-grid"></div>
+            <div class="lo-crt"></div>
+            <div class="lo-glitch" style="display:none;">
+                <div class="glitch-bar"></div>
+                <div class="glitch-rgb"></div>
+            </div>
             <div class="lo-lines">
                 <div class="lo-line"></div>
                 <div class="lo-line"></div>
@@ -411,6 +416,63 @@
             letter-spacing: 3px;
         }
 
+        /* ===== GLITCH EFFECT ===== */
+        .lo-glitch {
+            position: absolute;
+            width: 100%; height: 100%;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+        .glitch-bar {
+            position: absolute;
+            left: 0; width: 100%;
+            background: rgba(0,212,255,0.06);
+            animation: glitch-bar-anim 0.1s steps(1) infinite;
+        }
+        @keyframes glitch-bar-anim {
+            0%   { top: 10%; height: 2px; opacity: 1; transform: translateX(-3px); }
+            10%  { top: 45%; height: 4px; opacity: 0.8; transform: translateX(5px); }
+            20%  { top: 70%; height: 1px; opacity: 1; transform: translateX(-2px); }
+            30%  { top: 25%; height: 6px; opacity: 0.6; transform: translateX(4px); }
+            40%  { top: 85%; height: 2px; opacity: 1; transform: translateX(-5px); }
+            50%  { top: 55%; height: 3px; opacity: 0.9; transform: translateX(2px); }
+            60%  { top: 15%; height: 5px; opacity: 0.7; transform: translateX(-4px); }
+            70%  { top: 90%; height: 2px; opacity: 1; transform: translateX(3px); }
+            80%  { top: 35%; height: 4px; opacity: 0.8; transform: translateX(-2px); }
+            90%  { top: 65%; height: 1px; opacity: 1; transform: translateX(5px); }
+            100% { top: 5%;  height: 3px; opacity: 0.6; transform: translateX(-3px); }
+        }
+
+        .glitch-rgb {
+            position: absolute;
+            width: 100%; height: 100%;
+            top: 0; left: 0;
+            animation: glitch-rgb-anim 0.15s steps(1) infinite;
+        }
+        @keyframes glitch-rgb-anim {
+            0%   { box-shadow: inset 3px 0 0 rgba(255,0,80,0.04), inset -3px 0 0 rgba(0,255,200,0.04); }
+            25%  { box-shadow: inset -4px 0 0 rgba(255,0,80,0.06), inset 4px 0 0 rgba(0,255,200,0.06); }
+            50%  { box-shadow: inset 2px 0 0 rgba(255,0,80,0.03), inset -2px 0 0 rgba(0,255,200,0.03); }
+            75%  { box-shadow: inset -3px 0 0 rgba(255,0,80,0.05), inset 3px 0 0 rgba(0,255,200,0.05); }
+            100% { box-shadow: none; }
+        }
+
+        /* CRT scanlines */
+        .lo-crt {
+            position: absolute;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.15) 2px,
+                rgba(0,0,0,0.15) 4px
+            );
+            pointer-events: none;
+            z-index: 4;
+        }
+
         /* خط المسح العمودي */
         .lo-scanline {
             position: absolute;
@@ -424,45 +486,97 @@
 
         <script>
         function launchReleases() {
-            // 1. صوت إلكتروني بالـ Web Audio API
+            // 1. أصوات Sci-Fi سينمائية ناعمة
             try {
                 const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const master = ctx.createGain();
+                master.gain.value = 0.12; // حجم منخفض وناعم
+                master.connect(ctx.destination);
 
-                // صوت بداية - beep عالي
-                function beep(freq, start, dur, vol) {
+                // طبقة 1: نبضة عميقة ناعمة (مثل Iron Man HUD)
+                function deepHum(freq, start, dur) {
                     const osc = ctx.createOscillator();
                     const gain = ctx.createGain();
-                    osc.connect(gain); gain.connect(ctx.destination);
-                    osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
-                    osc.frequency.exponentialRampToValueAtTime(freq * 1.5, ctx.currentTime + start + dur * 0.5);
-                    gain.gain.setValueAtTime(vol, ctx.currentTime + start);
-                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur);
+                    const filter = ctx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.value = 800;
                     osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
+                    osc.frequency.linearRampToValueAtTime(freq * 1.2, ctx.currentTime + start + dur * 0.6);
+                    osc.frequency.linearRampToValueAtTime(freq * 0.9, ctx.currentTime + start + dur);
+                    gain.gain.setValueAtTime(0, ctx.currentTime + start);
+                    gain.gain.linearRampToValueAtTime(1, ctx.currentTime + start + 0.05);
+                    gain.gain.linearRampToValueAtTime(0.6, ctx.currentTime + start + dur * 0.5);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur);
+                    osc.connect(filter); filter.connect(gain); gain.connect(master);
                     osc.start(ctx.currentTime + start);
                     osc.stop(ctx.currentTime + start + dur);
                 }
 
-                // تسلسل أصوات مثل تشغيل جهاز متطور
-                beep(440, 0, 0.08, 0.3);
-                beep(880, 0.1, 0.08, 0.3);
-                beep(1320, 0.2, 0.08, 0.3);
-                beep(1760, 0.3, 0.15, 0.4);
+                // طبقة 2: صوت تشغيل نظام ناعم (مثل Interstellar)
+                function systemBoot(start) {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    const filter = ctx.createBiquadFilter();
+                    filter.type = 'bandpass';
+                    filter.frequency.value = 600;
+                    filter.Q.value = 2;
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(180, ctx.currentTime + start);
+                    osc.frequency.exponentialRampToValueAtTime(320, ctx.currentTime + start + 0.4);
+                    osc.frequency.exponentialRampToValueAtTime(240, ctx.currentTime + start + 0.8);
+                    gain.gain.setValueAtTime(0, ctx.currentTime + start);
+                    gain.gain.linearRampToValueAtTime(1, ctx.currentTime + start + 0.08);
+                    gain.gain.setValueAtTime(1, ctx.currentTime + start + 0.6);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + 1.2);
+                    osc.connect(filter); filter.connect(gain); gain.connect(master);
+                    osc.start(ctx.currentTime + start);
+                    osc.stop(ctx.currentTime + start + 1.3);
+                }
 
-                // صوت whoosh - ضجيج أبيض
-                const noise = ctx.createOscillator();
-                const noiseGain = ctx.createGain();
-                const filter = ctx.createBiquadFilter();
-                noise.type = 'sawtooth';
-                noise.frequency.setValueAtTime(100, ctx.currentTime + 0.3);
-                noise.frequency.exponentialRampToValueAtTime(2000, ctx.currentTime + 0.8);
-                filter.type = 'bandpass';
-                filter.frequency.value = 1000;
-                noiseGain.gain.setValueAtTime(0, ctx.currentTime + 0.3);
-                noiseGain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + 0.5);
-                noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.9);
-                noise.connect(filter); filter.connect(noiseGain); noiseGain.connect(ctx.destination);
-                noise.start(ctx.currentTime + 0.3);
-                noise.stop(ctx.currentTime + 1);
+                // طبقة 3: نبضات خفيفة متتالية (data processing)
+                function dataPulse(freq, start) {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.value = freq;
+                    gain.gain.setValueAtTime(0, ctx.currentTime + start);
+                    gain.gain.linearRampToValueAtTime(0.8, ctx.currentTime + start + 0.02);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + 0.12);
+                    osc.connect(gain); gain.connect(master);
+                    osc.start(ctx.currentTime + start);
+                    osc.stop(ctx.currentTime + start + 0.15);
+                }
+
+                // طبقة 4: طنين خلفي ناعم مستمر
+                function ambientHum() {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    const filter = ctx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.value = 400;
+                    osc.type = 'sawtooth';
+                    osc.frequency.value = 60;
+                    gain.gain.setValueAtTime(0, ctx.currentTime);
+                    gain.gain.linearRampToValueAtTime(0.4, ctx.currentTime + 0.3);
+                    gain.gain.setValueAtTime(0.4, ctx.currentTime + 1.5);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 2.5);
+                    osc.connect(filter); filter.connect(gain); gain.connect(master);
+                    osc.start(ctx.currentTime);
+                    osc.stop(ctx.currentTime + 2.6);
+                }
+
+                // تشغيل التسلسل الصوتي
+                ambientHum();
+                systemBoot(0.05);
+                dataPulse(520, 0.1);
+                dataPulse(680, 0.22);
+                dataPulse(440, 0.34);
+                dataPulse(760, 0.46);
+                dataPulse(520, 0.58);
+                deepHum(120, 0.6, 1.5);
+                dataPulse(880, 0.9);
+                dataPulse(660, 1.0);
 
             } catch(e) {}
 
@@ -487,27 +601,51 @@
             btn.style.boxShadow = '0 0 80px rgba(0,212,255,0.8)';
             setTimeout(() => { btn.style.transform = ''; }, 200);
 
-            // 4. طبقة الانتقال
+            // 4. طبقة الانتقال مع تشويش الشاشة
             setTimeout(() => {
                 const overlay = document.getElementById('launchOverlay');
                 overlay.classList.add('active');
+
+                // تشويش الشاشة في البداية
+                const glitch = overlay.querySelector('.lo-glitch');
+                glitch.style.display = 'block';
+                setTimeout(() => {
+                    glitch.style.animationDuration = '0.3s';
+                }, 300);
+                setTimeout(() => {
+                    glitch.style.display = 'none';
+                }, 800);
 
                 // شريط التحميل
                 const bar = document.getElementById('loBarFill');
                 const percent = document.getElementById('loPercent');
                 let prog = 0;
-                const interval = setInterval(() => {
-                    prog += Math.random() * 8 + 3;
-                    if (prog >= 100) {
-                        prog = 100;
-                        clearInterval(interval);
-                        setTimeout(() => { window.location.href = 'releases.html'; }, 200);
-                    }
-                    bar.style.width = prog + '%';
-                    percent.textContent = Math.floor(prog) + '%';
-                }, 50);
 
-            }, 400);
+                // تأخير بسيط قبل بدء التحميل (تشويش أولاً)
+                setTimeout(() => {
+                    const interval = setInterval(() => {
+                        // سرعة متغيرة مثل تحميل حقيقي
+                        const speed = prog < 30 ? Math.random() * 12 + 5 :
+                                      prog < 70 ? Math.random() * 6 + 2 :
+                                      Math.random() * 4 + 1;
+                        prog += speed;
+
+                        // توقف مؤقت عشوائي مثل نظام حقيقي
+                        if (prog >= 100) {
+                            prog = 100;
+                            clearInterval(interval);
+                            // تشويش أخير قبل الانتقال
+                            glitch.style.display = 'block';
+                            setTimeout(() => {
+                                window.location.href = 'releases.html';
+                            }, 300);
+                        }
+                        bar.style.width = prog + '%';
+                        percent.textContent = Math.floor(prog) + '%';
+                    }, 60);
+                }, 500);
+
+            }, 350);
         }
         </script>
     </section>
