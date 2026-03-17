@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaki King Music official Website</title>
+    <meta name="description" content="Algerian musician and composer of electronic and epic music. Listen to The Drop, Steel Throne, and Dimensions Of Memory on Spotify.">
+    <meta name="keywords" content="Zaki King Music, Algerian musician, electronic music, epic music, The Drop, Steel Throne, Dimensions Of Memory, Spotify, Algeria">
+    <meta name="author" content="Zaki King Music">
+    <link rel="icon" type="image/jpeg" href="Zaki_King_Music_Logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="Zaki_King_Music_Logo.jpg">
+    <link rel="apple-touch-icon" href="Zaki_King_Music_Logo.jpg">
+    <meta property="og:title" content="Zaki King Music official Website">
+    <meta property="og:description" content="Algerian musician and composer of electronic and epic music. Listen to The Drop, Steel Throne, and Dimensions Of Memory on Spotify.">
+    <meta property="og:image" content="https://zakikingmusic.github.io/Zaki-King-Music-Web/Zaki_King_Music_Logo.jpg">
+    <meta property="og:url" content="https://zakikingmusic.github.io/Zaki-King-Music-Web/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://zakikingmusic.github.io/Zaki-King-Music-Web/Zaki_King_Music_Logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- canvas للنجوم -->
+    <canvas id="starsCanvas"></canvas>
+
+    <nav>
+        <div class="logo">
+            <img src="Zaki_King_Music_Logo.jpg" alt="Zaki King Music Logo" class="logo-img">
+            <span>Zaki King Music</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="closeMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMenu()">About</a></li>
+            <li><a href="#music" onclick="closeMenu()">Music</a></li>
+            <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            <li class="nav-social-row">
+                <a href="https://instagram.com/zakikingmusic" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@zakikingmusic" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@zakikingmusic" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://open.spotify.com/artist/5SY0LBMYUXGyoj2UwxLSXu/" target="_blank"><i class="fab fa-spotify"></i></a>
+                <a href="https://x.com/zakikingmusic" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <!-- شعار في الوسط أعلى -->
+            <div class="hero-logo-wrap">
+                <img src="Zaki_King_Music.png" alt="Zaki King Music" class="hero-logo-img">
+            </div>
+            <p class="hero-subtitle">Where Melodies Meet Emotions</p>
+            <a href="#music" class="cta-btn">Discover More</a>
+        </div>
+        <div class="sound-waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="Zaki_King_Music_Profile.jpg" alt="Zaki King Music">
+            </div>
+            <div class="about-text">
+                <h3>About Zaki King Music</h3>
+                <p>Zaki King Music is an independent musician and producer from Algeria who began his musical journey in 2023. Known for blending electronic, epic, and cinematic soundscapes, his music takes listeners on an emotional journey.</p>
+                <p>Among his most recognized works are "The Drop", "Steel Throne", and "Dimensions Of Memory" — each representing a unique chapter in his evolving sound. With a fifth release on the horizon, Zaki King Music continues to grow and push creative boundaries.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="music">
+        <h2 class="section-title">My Musical Works</h2>
+        <div class="music-grid">
+            <div class="music-card">
+                <div class="music-cover">
+                    <img src="The_Drop.png" alt="The Drop">
+                    <div class="card-geometry"><div class="geo-shape"></div></div>
+                </div>
+                <div class="music-info">
+                    <h3>The Drop</h3>
+                    <p>Electronic music based on rhythms</p>
+                    <a href="https://open.spotify.com/track/78DU6QcJaSGLB8cUQASYPn?si=_5yEO4J2R1uHWRmm0hiTpw" class="listen-btn" target="_blank">Listen Now</a>
+                </div>
+            </div>
+            <div class="music-card">
+                <div class="music-cover">
+                    <img src="Steel_Throne.jpg" alt="Steel Throne">
+                    <div class="card-geometry"><div class="geo-shape"></div></div>
+                </div>
+                <div class="music-info">
+                    <h3>Steel Throne</h3>
+                    <p>Epic, cinematic music based on military rhythms and drums that immerses you in the atmosphere of war</p>
+                    <a href="https://open.spotify.com/track/4W1HVNX3ohK6YTajVvfbbi?si=I8r4hkMuTJSHS91wEWHKog" class="listen-btn" target="_blank">Listen Now</a>
+                </div>
+            </div>
+            <div class="music-card">
+                <div class="music-cover">
+                    <img src="Dimensions_Of_Memory.jpg" alt="Dimensions Of Memory">
+                    <div class="card-geometry"><div class="geo-shape"></div></div>
+                </div>
+                <div class="music-info">
+                    <h3>Dimensions Of Memory</h3>
+                    <p>Music based on string instruments that evokes feelings of calm and tranquility</p>
+                    <a href="https://open.spotify.com/artist/5SY0LBMYUXGyoj2UwxLSXu/" class="listen-btn" target="_blank">Listen Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- زر View All Releases - Space Launch -->
+        <div style="text-align:center; margin-top: 4rem; position:relative;">
+
+            <!-- حلقات الطاقة خلف الزر -->
+            <div class="btn-energy-rings" id="energyRings">
+                <div class="energy-ring r1"></div>
+                <div class="energy-ring r2"></div>
+                <div class="energy-ring r3"></div>
+            </div>
+
+            <button class="releases-btn" id="releasesBtn" onclick="launchReleases()">
+                <span class="btn-icon-left">⬡</span>
+                <span class="btn-label">
+                    <span class="btn-top-text">EXPLORE</span>
+                    <span class="btn-main-text">ALL RELEASES</span>
+                </span>
+                <span class="btn-icon-right">→</span>
+                <div class="btn-scan"></div>
+                <div class="btn-corner tl"></div>
+                <div class="btn-corner tr"></div>
+                <div class="btn-corner bl"></div>
+                <div class="btn-corner br"></div>
+            </button>
+
+            <!-- جسيمات الانطلاق -->
+            <div class="launch-particles" id="launchParticles"></div>
+        </div>
+
+        <!-- طبقة الانتقال الكاملة -->
+        <div class="launch-overlay" id="launchOverlay">
+            <div class="lo-grid"></div>
+            <div class="lo-crt"></div>
+            <div class="lo-glitch" style="display:none;">
+                <div class="glitch-bar"></div>
+                <div class="glitch-rgb"></div>
+            </div>
+            <div class="lo-lines">
+                <div class="lo-line"></div>
+                <div class="lo-line"></div>
+                <div class="lo-line"></div>
+                <div class="lo-line"></div>
+                <div class="lo-line"></div>
+            </div>
+            <div class="lo-center">
+                <div class="lo-hexagon">
+                    <div class="lo-hex-inner">⬡</div>
+                </div>
+                <div class="lo-text">LOADING RELEASES</div>
+                <div class="lo-bar"><div class="lo-bar-fill" id="loBarFill"></div></div>
+                <div class="lo-percent" id="loPercent">0%</div>
+            </div>
+            <div class="lo-scanline"></div>
+        </div>
+
+        <style>
+        /* ===== ENERGY RINGS ===== */
+        .btn-energy-rings {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .energy-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(0,212,255,0.2);
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            animation: ring-pulse 3s ease-in-out infinite;
+        }
+        .r1 { width: 280px; height: 60px; animation-delay: 0s; }
+        .r2 { width: 360px; height: 70px; animation-delay: 0.6s; border-color: rgba(0,212,255,0.12); }
+        .r3 { width: 440px; height: 80px; animation-delay: 1.2s; border-color: rgba(0,212,255,0.07); }
+        @keyframes ring-pulse {
+            0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scaleX(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scaleX(1.05); }
+        }
+
+        /* ===== MAIN BUTTON ===== */
+        .releases-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, rgba(0,15,40,0.95) 0%, rgba(0,30,70,0.9) 100%);
+            border: 1px solid rgba(0,212,255,0.6);
+            color: #00d4ff;
+            cursor: pointer;
+            font-family: 'Audiowide', cursive;
+            text-decoration: none;
+            clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+            box-shadow:
+                0 0 30px rgba(0,212,255,0.2),
+                0 0 60px rgba(0,100,255,0.1),
+                inset 0 0 30px rgba(0,212,255,0.03);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            z-index: 1;
+            animation: btn-breathe 2s ease-in-out infinite;
+        }
+        @keyframes btn-breathe {
+            0%, 100% { box-shadow: 0 0 30px rgba(0,212,255,0.2), 0 0 60px rgba(0,100,255,0.1), inset 0 0 30px rgba(0,212,255,0.03); }
+            50% { box-shadow: 0 0 50px rgba(0,212,255,0.4), 0 0 100px rgba(0,100,255,0.2), inset 0 0 40px rgba(0,212,255,0.06); }
+        }
+        .releases-btn:hover {
+            background: linear-gradient(135deg, rgba(0,30,70,0.95) 0%, rgba(0,60,120,0.9) 100%);
+            border-color: #00d4ff;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 0 60px rgba(0,212,255,0.5), 0 0 120px rgba(0,100,255,0.3), inset 0 0 40px rgba(0,212,255,0.08);
+            animation: none;
+        }
+
+        /* زوايا الزر */
+        .btn-corner {
+            position: absolute;
+            width: 10px; height: 10px;
+            border-color: #00d4ff;
+            border-style: solid;
+            opacity: 0.8;
+        }
+        .btn-corner.tl { top: 4px; left: 24px; border-width: 1px 0 0 1px; }
+        .btn-corner.tr { top: 4px; right: 24px; border-width: 1px 1px 0 0; }
+        .btn-corner.bl { bottom: 4px; left: 24px; border-width: 0 0 1px 1px; }
+        .btn-corner.br { bottom: 4px; right: 24px; border-width: 0 1px 1px 0; }
+
+        /* خط المسح */
+        .btn-scan {
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,212,255,0.08), transparent);
+            animation: btn-scan 3s linear infinite;
+        }
+        @keyframes btn-scan { to { left: 150%; } }
+
+        .btn-icon-left {
+            font-size: 1.4rem;
+            animation: hex-rotate 4s linear infinite;
+            display: inline-block;
+        }
+        @keyframes hex-rotate { to { transform: rotate(360deg); } }
+
+        .btn-label {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+        .btn-top-text {
+            font-size: 0.55rem;
+            letter-spacing: 5px;
+            color: rgba(0,212,255,0.6);
+            font-family: 'Audiowide', cursive;
+        }
+        .btn-main-text {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            color: #00d4ff;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(0,212,255,0.8);
+        }
+        .btn-icon-right {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        .releases-btn:hover .btn-icon-right { transform: translateX(6px); }
+
+        /* ===== LAUNCH PARTICLES ===== */
+        .launch-particles {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 10;
+        }
+        .particle {
+            position: absolute;
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: #00d4ff;
+            box-shadow: 0 0 8px #00d4ff;
+            animation: particle-fly 0.8s ease-out forwards;
+        }
+        @keyframes particle-fly {
+            0% { opacity: 1; transform: translate(0,0) scale(1); }
+            100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
+        }
+
+        /* ===== LAUNCH OVERLAY ===== */
+        .launch-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #000510;
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .launch-overlay.active { display: flex; }
+
+        /* شبكة الخلفية */
+        .lo-grid {
+            position: absolute;
+            width: 100%; height: 100%;
+            background-image:
+                linear-gradient(rgba(0,212,255,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,212,255,0.06) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-zoom 1.5s ease-out forwards;
+        }
+        @keyframes grid-zoom {
+            from { transform: perspective(500px) rotateX(30deg) scale(2); opacity: 0; }
+            to { transform: perspective(500px) rotateX(0deg) scale(1); opacity: 1; }
+        }
+
+        /* خطوط الانطلاق */
+        .lo-lines { position: absolute; width: 100%; height: 100%; }
+        .lo-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+            animation: lo-line-anim 1s ease-out forwards;
+            opacity: 0;
+        }
+        .lo-line:nth-child(1) { top: 20%; width: 100%; animation-delay: 0.1s; }
+        .lo-line:nth-child(2) { top: 40%; width: 80%; left: 10%; animation-delay: 0.2s; }
+        .lo-line:nth-child(3) { top: 60%; width: 100%; animation-delay: 0.15s; }
+        .lo-line:nth-child(4) { top: 75%; width: 60%; left: 20%; animation-delay: 0.25s; }
+        .lo-line:nth-child(5) { top: 85%; width: 90%; left: 5%; animation-delay: 0.3s; }
+        @keyframes lo-line-anim {
+            0% { opacity: 0; transform: scaleX(0); }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.3; transform: scaleX(1); }
+        }
+
+        /* المركز */
+        .lo-center {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 20px;
+        }
+        .lo-hexagon {
+            width: 100px; height: 100px;
+            border: 2px solid #00d4ff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 40px rgba(0,212,255,0.5), inset 0 0 40px rgba(0,212,255,0.1);
+            animation: hex-spin 1s linear infinite;
+        }
+        @keyframes hex-spin { to { transform: rotate(360deg); box-shadow: 0 0 60px rgba(0,212,255,0.8), inset 0 0 60px rgba(0,212,255,0.2); } }
+        .lo-hex-inner {
+            font-size: 2.5rem; color: #00d4ff;
+            text-shadow: 0 0 20px #00d4ff;
+            animation: hex-spin 1s linear infinite reverse;
+        }
+        .lo-text {
+            font-family: 'Audiowide', cursive;
+            font-size: 0.8rem;
+            letter-spacing: 6px;
+            color: #00d4ff;
+            text-shadow: 0 0 15px rgba(0,212,255,0.8);
+            animation: lo-text-blink 0.5s ease-in-out infinite;
+        }
+        @keyframes lo-text-blink { 50% { opacity: 0.5; } }
+
+        /* شريط التحميل */
+        .lo-bar {
+            width: 300px; height: 3px;
+            background: rgba(0,212,255,0.1);
+            border: 1px solid rgba(0,212,255,0.3);
+            position: relative;
+            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+        }
+        .lo-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0066cc, #00d4ff);
+            box-shadow: 0 0 10px #00d4ff;
+            width: 0%;
+            transition: width 0.05s linear;
+        }
+        .lo-percent {
+            font-family: 'Audiowide', cursive;
+            font-size: 0.7rem;
+            color: rgba(0,212,255,0.7);
+            letter-spacing: 3px;
+        }
+
+        /* ===== GLITCH EFFECT ===== */
+        .lo-glitch {
+            position: absolute;
+            width: 100%; height: 100%;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+        .glitch-bar {
+            position: absolute;
+            left: 0; width: 100%;
+            background: rgba(0,212,255,0.06);
+            animation: glitch-bar-anim 0.1s steps(1) infinite;
+        }
+        @keyframes glitch-bar-anim {
+            0%   { top: 10%; height: 2px; opacity: 1; transform: translateX(-3px); }
+            10%  { top: 45%; height: 4px; opacity: 0.8; transform: translateX(5px); }
+            20%  { top: 70%; height: 1px; opacity: 1; transform: translateX(-2px); }
+            30%  { top: 25%; height: 6px; opacity: 0.6; transform: translateX(4px); }
+            40%  { top: 85%; height: 2px; opacity: 1; transform: translateX(-5px); }
+            50%  { top: 55%; height: 3px; opacity: 0.9; transform: translateX(2px); }
+            60%  { top: 15%; height: 5px; opacity: 0.7; transform: translateX(-4px); }
+            70%  { top: 90%; height: 2px; opacity: 1; transform: translateX(3px); }
+            80%  { top: 35%; height: 4px; opacity: 0.8; transform: translateX(-2px); }
+            90%  { top: 65%; height: 1px; opacity: 1; transform: translateX(5px); }
+            100% { top: 5%;  height: 3px; opacity: 0.6; transform: translateX(-3px); }
+        }
+
+        .glitch-rgb {
+            position: absolute;
+            width: 100%; height: 100%;
+            top: 0; left: 0;
+            animation: glitch-rgb-anim 0.15s steps(1) infinite;
+        }
+        @keyframes glitch-rgb-anim {
+            0%   { box-shadow: inset 3px 0 0 rgba(255,0,80,0.04), inset -3px 0 0 rgba(0,255,200,0.04); }
+            25%  { box-shadow: inset -4px 0 0 rgba(255,0,80,0.06), inset 4px 0 0 rgba(0,255,200,0.06); }
+            50%  { box-shadow: inset 2px 0 0 rgba(255,0,80,0.03), inset -2px 0 0 rgba(0,255,200,0.03); }
+            75%  { box-shadow: inset -3px 0 0 rgba(255,0,80,0.05), inset 3px 0 0 rgba(0,255,200,0.05); }
+            100% { box-shadow: none; }
+        }
+
+        /* CRT scanlines */
+        .lo-crt {
+            position: absolute;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.15) 2px,
+                rgba(0,0,0,0.15) 4px
+            );
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        /* خط المسح العمودي */
+        .lo-scanline {
+            position: absolute;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0,212,255,0.4), transparent);
+            top: -2px;
+            animation: lo-scan 1.5s linear infinite;
+        }
+        @keyframes lo-scan { to { top: 100%; } }
+        </style>
+
+        <script>
+        function launchReleases() {
+            // 1. أصوات Sci-Fi سينمائية ناعمة
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const master = ctx.createGain();
+                master.gain.value = 0.12; // حجم منخفض وناعم
+                master.connect(ctx.destination);
+
+                // طبقة 1: نبضة عميقة ناعمة (مثل Iron Man HUD)
+                function deepHum(freq, start, dur) {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    const filter = ctx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.value = 800;
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
+                    osc.frequency.linearRampToValueAtTime(freq * 1.2, ctx.currentTime + start + dur * 0.6);
+                    osc.frequency.linearRampToValueAtTime(freq * 0.9, ctx.currentTime + start + dur);
+                    gain.gain.setValueAtTime(0, ctx.currentTime + start);
+                    gain.gain.linearRampToValueAtTime(1, ctx.currentTime + start + 0.05);
+                    gain.gain.linearRampToValueAtTime(0.6, ctx.currentTime + start + dur * 0.5);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur);
+                    osc.connect(filter); filter.connect(gain); gain.connect(master);
+                    osc.start(ctx.currentTime + start);
+                    osc.stop(ctx.currentTime + start + dur);
+                }
+
+                // طبقة 2: صوت تشغيل نظام ناعم (مثل Interstellar)
+                function systemBoot(start) {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    const filter = ctx.createBiquadFilter();
+                    filter.type = 'bandpass';
+                    filter.frequency.value = 600;
+                    filter.Q.value = 2;
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(180, ctx.currentTime + start);
+                    osc.frequency.exponentialRampToValueAtTime(320, ctx.currentTime + start + 0.4);
+                    osc.frequency.exponentialRampToValueAtTime(240, ctx.currentTime + start + 0.8);
+                    gain.gain.setValueAtTime(0, ctx.currentTime + start);
+                    gain.gain.linearRampToValueAtTime(1, ctx.currentTime + start + 0.08);
+                    gain.gain.setValueAtTime(1, ctx.currentTime + start + 0.6);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + 1.2);
+                    osc.connect(filter); filter.connect(gain); gain.connect(master);
+                    osc.start(ctx.currentTime + start);
+                    osc.stop(ctx.currentTime + start + 1.3);
+                }
+
+                // طبقة 3: نبضات خفيفة متتالية (data processing)
+                function dataPulse(freq, start) {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.value = freq;
+                    gain.gain.setValueAtTime(0, ctx.currentTime + start);
+                    gain.gain.linearRampToValueAtTime(0.8, ctx.currentTime + start + 0.02);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + 0.12);
+                    osc.connect(gain); gain.connect(master);
+                    osc.start(ctx.currentTime + start);
+                    osc.stop(ctx.currentTime + start + 0.15);
+                }
+
+                // طبقة 4: طنين خلفي ناعم مستمر
+                function ambientHum() {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    const filter = ctx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.value = 400;
+                    osc.type = 'sawtooth';
+                    osc.frequency.value = 60;
+                    gain.gain.setValueAtTime(0, ctx.currentTime);
+                    gain.gain.linearRampToValueAtTime(0.4, ctx.currentTime + 0.3);
+                    gain.gain.setValueAtTime(0.4, ctx.currentTime + 1.5);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 2.5);
+                    osc.connect(filter); filter.connect(gain); gain.connect(master);
+                    osc.start(ctx.currentTime);
+                    osc.stop(ctx.currentTime + 2.6);
+                }
+
+                // تشغيل التسلسل الصوتي
+                ambientHum();
+                systemBoot(0.05);
+                dataPulse(520, 0.1);
+                dataPulse(680, 0.22);
+                dataPulse(440, 0.34);
+                dataPulse(760, 0.46);
+                dataPulse(520, 0.58);
+                deepHum(120, 0.6, 1.5);
+                dataPulse(880, 0.9);
+                dataPulse(660, 1.0);
+
+            } catch(e) {}
+
+            // 2. جسيمات الانطلاق
+            const container = document.getElementById('launchParticles');
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const angle = (Math.random() * 360) * Math.PI / 180;
+                const dist = 80 + Math.random() * 120;
+                p.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+                p.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+                p.style.animationDelay = Math.random() * 0.2 + 's';
+                p.style.background = Math.random() > 0.5 ? '#00d4ff' : '#ffffff';
+                container.appendChild(p);
+                setTimeout(() => p.remove(), 1000);
+            }
+
+            // 3. تأثير الزر
+            const btn = document.getElementById('releasesBtn');
+            btn.style.transform = 'scale(0.95)';
+            btn.style.boxShadow = '0 0 80px rgba(0,212,255,0.8)';
+            setTimeout(() => { btn.style.transform = ''; }, 200);
+
+            // 4. طبقة الانتقال مع تشويش الشاشة
+            setTimeout(() => {
+                const overlay = document.getElementById('launchOverlay');
+                overlay.classList.add('active');
+
+                // تشويش الشاشة في البداية
+                const glitch = overlay.querySelector('.lo-glitch');
+                glitch.style.display = 'block';
+                setTimeout(() => {
+                    glitch.style.animationDuration = '0.3s';
+                }, 300);
+                setTimeout(() => {
+                    glitch.style.display = 'none';
+                }, 800);
+
+                // شريط التحميل
+                const bar = document.getElementById('loBarFill');
+                const percent = document.getElementById('loPercent');
+                let prog = 0;
+
+                // تأخير بسيط قبل بدء التحميل (تشويش أولاً)
+                setTimeout(() => {
+                    const interval = setInterval(() => {
+                        // سرعة متغيرة مثل تحميل حقيقي
+                        const speed = prog < 30 ? Math.random() * 12 + 5 :
+                                      prog < 70 ? Math.random() * 6 + 2 :
+                                      Math.random() * 4 + 1;
+                        prog += speed;
+
+                        // توقف مؤقت عشوائي مثل نظام حقيقي
+                        if (prog >= 100) {
+                            prog = 100;
+                            clearInterval(interval);
+                            // تشويش أخير قبل الانتقال
+                            glitch.style.display = 'block';
+                            setTimeout(() => {
+                                window.location.href = 'releases.html';
+                            }, 300);
+                        }
+                        bar.style.width = prog + '%';
+                        percent.textContent = Math.floor(prog) + '%';
+                    }, 60);
+                }, 500);
+
+            }, 350);
+        }
+        </script>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="Zaki_King_Music_Profile.jpg" alt="Zaki King Music">
+                <div class="gallery-overlay"><div class="overlay-shape"></div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="Zaki_King_Music_Logo.jpg" alt="Zaki King Music Logo">
+                <div class="gallery-overlay"><div class="overlay-shape"></div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="Zaki_Logo2.jpg" alt="Zaki Logo">
+                <div class="gallery-overlay"><div class="overlay-shape"></div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="Zaki_Photo.PNG" alt="Zaki Photo">
+                <div class="gallery-overlay"><div class="overlay-shape"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact Me or Explore My Pages</h2>
+        <div class="contact-content">
+            <p>If you have any questions, please contact me via email or social media</p>
+            <div class="contact-grid">
+                <a href="https://instagram.com/zakikingmusic" class="contact-card" target="_blank">
+                    <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+                    <h4>Instagram</h4>
+                    <p>@zakikingmusic</p>
+                </a>
+                <a href="https://tiktok.com/@zakikingmusic" class="contact-card" target="_blank">
+                    <div class="contact-icon"><i class="fab fa-tiktok"></i></div>
+                    <h4>TikTok</h4>
+                    <p>@zakikingmusic</p>
+                </a>
+                <a href="/cdn-cgi/l/email-protection#c3aba2aeb9a2a8aaa8aaada4fafafa83a4aea2aaafeda0acae" class="contact-card" target="_blank">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Email</h4>
+                    <p><span class="__cf_email__" data-cfemail="761e171b0c171d1f1d1f18114f4f4f36111b171f1a5815191b">[email&#160;protected]</span></p>
+                </a>
+                <a href="https://youtube.com/@zakikingmusic" class="contact-card" target="_blank">
+                    <div class="contact-icon"><i class="fab fa-youtube"></i></div>
+                    <h4>YouTube</h4>
+                    <p>My Channel</p>
+                </a>
+                <a href="https://open.spotify.com/artist/5SY0LBMYUXGyoj2UwxLSXu/" class="contact-card" target="_blank">
+                    <div class="contact-icon"><i class="fab fa-spotify"></i></div>
+                    <h4>Spotify</h4>
+                    <p>My Music</p>
+                </a>
+                <a href="https://x.com/zakikingmusic" class="contact-card" target="_blank">
+                    <div class="contact-icon"><i class="fab fa-x-twitter"></i></div>
+                    <h4>X (Twitter)</h4>
+                    <p>@zakikingmusic</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>2026 All rights reserved | <span class="highlight">Zaki King Music</span></p>
+    </footer>
+
+    <style>
+        /* ===== STARS CANVAS ===== */
+        #starsCanvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ===== HERO LOGO ===== */
+        .hero-logo-wrap {
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-logo-img {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(255,215,0,0.5)) drop-shadow(0 0 40px rgba(255,215,0,0.2));
+            animation: logo-float 4s ease-in-out infinite;
+        }
+        @keyframes logo-float {
+            0%, 100% { transform: translateY(0px); filter: drop-shadow(0 0 20px rgba(255,215,0,0.5)) drop-shadow(0 0 40px rgba(255,215,0,0.2)); }
+            50% { transform: translateY(-12px); filter: drop-shadow(0 0 30px rgba(255,215,0,0.8)) drop-shadow(0 0 60px rgba(255,215,0,0.4)); }
+        }
+
+        /* إخفاء geometric-bg القديم */
+        .geometric-bg { display: none !important; }
+
+        /* ===== BACK OVERLAY (ذهبي) ===== */
+        .back-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #050300;
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .back-overlay.active { display: flex; }
+
+        .bo-grid {
+            position: absolute;
+            width: 100%; height: 100%;
+            background-image:
+                linear-gradient(rgba(255,215,0,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,215,0,0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: grid-zoom 1.2s ease-out forwards;
+        }
+        @keyframes grid-zoom {
+            from { transform: perspective(500px) rotateX(30deg) scale(2); opacity: 0; }
+            to { transform: perspective(500px) rotateX(0deg) scale(1); opacity: 1; }
+        }
+
+        .bo-lines { position: absolute; width: 100%; height: 100%; }
+        .bo-line {
+            position: absolute; height: 1px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            animation: bo-line-anim 0.8s ease-out forwards; opacity: 0;
+        }
+        .bo-line:nth-child(1) { top: 25%; width: 100%; animation-delay: 0.05s; }
+        .bo-line:nth-child(2) { top: 50%; width: 75%; left: 12%; animation-delay: 0.1s; }
+        .bo-line:nth-child(3) { top: 70%; width: 100%; animation-delay: 0.08s; }
+        .bo-line:nth-child(4) { top: 85%; width: 55%; left: 22%; animation-delay: 0.12s; }
+        @keyframes bo-line-anim {
+            0% { opacity: 0; transform: scaleX(0); }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.3; transform: scaleX(1); }
+        }
+
+        .bo-crt {
+            position: absolute; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px);
+            pointer-events: none; z-index: 4;
+        }
+
+        .bo-glitch {
+            position: absolute; width: 100%; height: 100%;
+            top: 0; left: 0; pointer-events: none; z-index: 3;
+        }
+        .bo-glitch-bar {
+            position: absolute; left: 0; width: 100%;
+            background: rgba(255,215,0,0.06);
+            animation: bo-glitch-anim 0.1s steps(1) infinite;
+        }
+        @keyframes bo-glitch-anim {
+            0%   { top: 15%; height: 2px; transform: translateX(-3px); }
+            20%  { top: 50%; height: 4px; transform: translateX(5px); }
+            40%  { top: 75%; height: 2px; transform: translateX(-2px); }
+            60%  { top: 30%; height: 5px; transform: translateX(4px); }
+            80%  { top: 88%; height: 2px; transform: translateX(-4px); }
+            100% { top: 10%; height: 3px; transform: translateX(2px); }
+        }
+
+        .bo-center {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 20px;
+        }
+        .bo-ring {
+            width: 100px; height: 100px;
+            border: 2px solid #ffd700;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 40px rgba(255,215,0,0.5), inset 0 0 40px rgba(255,215,0,0.1);
+            animation: bo-spin 1s linear infinite;
+        }
+        @keyframes bo-spin { to { transform: rotate(360deg); } }
+        .bo-ring-inner {
+            font-size: 2rem; color: #ffd700;
+            text-shadow: 0 0 20px #ffd700;
+            animation: bo-spin 1s linear infinite reverse;
+        }
+        .bo-text {
+            font-family: 'Audiowide', cursive;
+            font-size: 0.75rem; letter-spacing: 6px;
+            color: #ffd700;
+            text-shadow: 0 0 15px rgba(255,215,0,0.8);
+            animation: bo-blink 0.5s ease-in-out infinite;
+        }
+        @keyframes bo-blink { 50% { opacity: 0.4; } }
+        .bo-bar {
+            width: 280px; height: 3px;
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+        }
+        .bo-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #b8860b, #ffd700);
+            box-shadow: 0 0 10px #ffd700;
+            width: 0%; transition: width 0.05s linear;
+        }
+        .bo-percent {
+            font-family: 'Audiowide', cursive;
+            font-size: 0.7rem; color: rgba(255,215,0,0.7); letter-spacing: 3px;
+        }
+        .bo-scanline {
+            position: absolute; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.4), transparent);
+            top: -2px; animation: bo-scan 1.5s linear infinite;
+        }
+        @keyframes bo-scan { to { top: 100%; } }
+    </style>
+
+    <!-- Back Overlay ذهبي -->
+    <div class="back-overlay" id="backOverlay">
+        <div class="bo-grid"></div>
+        <div class="bo-crt"></div>
+        <div class="bo-glitch"><div class="bo-glitch-bar"></div></div>
+        <div class="bo-lines">
+            <div class="bo-line"></div>
+            <div class="bo-line"></div>
+            <div class="bo-line"></div>
+            <div class="bo-line"></div>
+        </div>
+        <div class="bo-center">
+            <div class="bo-ring"><div class="bo-ring-inner">♔</div></div>
+            <div class="bo-text">RETURNING HOME</div>
+            <div class="bo-bar"><div class="bo-bar-fill" id="boBarFill"></div></div>
+            <div class="bo-percent" id="boPercent">0%</div>
+        </div>
+        <div class="bo-scanline"></div>
+    </div>
+
+    <script>
+        // ===== STARS CANVAS =====
+        const canvas = document.getElementById('starsCanvas');
+        const ctx2 = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.body.scrollHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const stars = [];
+        const STAR_COUNT = 250;
+
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight * 4,
+                r: Math.random() * 1.5 + 0.3,
+                alpha: Math.random() * 0.8 + 0.2,
+                speed: Math.random() * 0.3 + 0.05,
+                twinkleSpeed: Math.random() * 0.02 + 0.005,
+                twinkleDir: Math.random() > 0.5 ? 1 : -1,
+                color: Math.random() > 0.85 ? '#ffd700' : Math.random() > 0.7 ? '#aaddff' : '#ffffff'
+            });
+        }
+
+        function drawStars() {
+            ctx2.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(s => {
+                s.alpha += s.twinkleSpeed * s.twinkleDir;
+                if (s.alpha >= 1 || s.alpha <= 0.1) s.twinkleDir *= -1;
+                ctx2.beginPath();
+                ctx2.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx2.fillStyle = s.color;
+                ctx2.globalAlpha = s.alpha;
+                ctx2.fill();
+                // بعض النجوم لها وميض
+                if (s.r > 1.2) {
+                    ctx2.beginPath();
+                    ctx2.arc(s.x, s.y, s.r * 2.5, 0, Math.PI * 2);
+                    ctx2.fillStyle = s.color;
+                    ctx2.globalAlpha = s.alpha * 0.15;
+                    ctx2.fill();
+                }
+            });
+            ctx2.globalAlpha = 1;
+            requestAnimationFrame(drawStars);
+        }
+        drawStars();
+
+        // ===== SHOW BACK OVERLAY عند العودة من releases =====
+        window.addEventListener('pageshow', function(e) {
+            if (e.persisted || (window.performance && window.performance.navigation.type === 2)) {
+                showBackOverlay();
+            }
+        });
+
+        // كشف إذا جاء من releases.html
+        if (document.referrer.includes('releases.html')) {
+            showBackOverlay();
+        }
+
+        function showBackOverlay() {
+            const overlay = document.getElementById('backOverlay');
+            overlay.classList.add('active');
+            const bar = document.getElementById('boBarFill');
+            const percent = document.getElementById('boPercent');
+            let prog = 0;
+            const interval = setInterval(() => {
+                prog += Math.random() * 10 + 4;
+                if (prog >= 100) {
+                    prog = 100;
+                    clearInterval(interval);
+                    setTimeout(() => { overlay.classList.remove('active'); }, 200);
+                }
+                bar.style.width = prog + '%';
+                percent.textContent = Math.floor(prog) + '%';
+            }, 50);
+        }
+
+        // ===== MENU =====
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            nav.classList.toggle('open');
+            hamburger.classList.toggle('active');
+        }
+        function closeMenu() {
+            const nav = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            nav.classList.remove('open');
+            hamburger.classList.remove('active');
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
