@@ -757,23 +757,58 @@
         <p>© 2026 All Rights Reserved</p>
     </footer>
 
-    <!-- Load albums data FIRST -->
-    <script src="albums.js"></script>
     <script>
+        // ===== ALBUMS DATA مدمجة مباشرة =====
+        const ALBUMS = [
+            {
+                id: 5,
+                title: "Coming Soon",
+                description: "The next chapter is being written. Stay tuned for new music coming in 2026.",
+                cover: "Zaki_King_Music_Logo.jpg",
+                spotifyUrl: "#", youtubeUrl: "#", pushfmUrl: "#",
+                year: "2026", genre: "Unknown", status: "coming_soon"
+            },
+            {
+                id: 4,
+                title: "Steel Throne",
+                description: "Epic cinematic music based on military rhythms and powerful drums that immerses you in the atmosphere of war. Battle, victory, darkness, power.",
+                cover: "Steel_Throne.jpg",
+                spotifyUrl: "ضع رابط Spotify هنا",   // ← Steel Throne Spotify
+                youtubeUrl: "ضع رابط YouTube هنا",   // ← Steel Throne YouTube
+                pushfmUrl:  "ضع رابط Push.fm هنا",   // ← Steel Throne Push.fm
+                year: "2025", genre: "Epic / Cinematic", status: "released"
+            },
+            {
+                id: 3,
+                title: "Dimensions Of Memory",
+                description: "Orchestral ambient music based on string instruments that evokes feelings of calm, tranquility, nostalgia and peace. Emotional journey through memories.",
+                cover: "Dimensions_Of_Memory.jpg",
+                spotifyUrl: "ضع رابط Spotify هنا",   // ← Dimensions Of Memory Spotify
+                youtubeUrl: "ضع رابط YouTube هنا",   // ← Dimensions Of Memory YouTube
+                pushfmUrl:  "ضع رابط Push.fm هنا",   // ← Dimensions Of Memory Push.fm
+                year: "2024", genre: "Orchestral / Ambient", status: "released"
+            },
+            {
+                id: 1,
+                title: "The Drop",
+                description: "Electronic music based on powerful rhythms and energetic beats. Dance, bass, electronic sound design.",
+                cover: "The_Drop.png",
+                spotifyUrl: "ضع رابط Spotify هنا",   // ← The Drop Spotify
+                youtubeUrl: "ضع رابط YouTube هنا",   // ← The Drop YouTube
+                pushfmUrl:  "ضع رابط Push.fm هنا",   // ← The Drop Push.fm
+                year: "2023", genre: "Electronic", status: "released"
+            }
+        ];
+
+        // ===== MAIN SCRIPT =====
         let currentFilter = 'all';
         let currentSearch = '';
 
         function renderAlbums(filter, search = '') {
             const grid = document.getElementById('albumsGrid');
-
-            if (typeof ALBUMS === 'undefined') {
-                setTimeout(() => renderAlbums(filter, search), 100);
-                return;
-            }
-
             let filtered = filter === 'all' ? ALBUMS : ALBUMS.filter(a => a.status === filter);
 
-            // بحث شامل — عنوان + نوع + سنة + وصف كاملاً (كلمات مفتاحية تلقائية)
+            // بحث شامل في كل حقول الألبوم + الوصف كلمات مفتاحية
             if (search.trim()) {
                 const q = search.toLowerCase().trim();
                 filtered = filtered.filter(a =>
