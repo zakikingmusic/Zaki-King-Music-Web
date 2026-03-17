@@ -141,14 +141,151 @@
 
         .back-btn {
             display: flex; align-items: center; gap: 8px;
-            color: var(--grey); text-decoration: none;
+            color: #ffd700;
+            text-decoration: none;
             font-size: 0.9rem; letter-spacing: 2px;
             text-transform: uppercase;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             font-family: 'Orbitron', monospace;
+            border: 1px solid rgba(255,215,0,0.4);
+            padding: 8px 18px;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+            box-shadow: 0 0 15px rgba(255,215,0,0.15);
         }
-        .back-btn:hover { color: var(--blue); }
+        .back-btn:hover {
+            color: #ffd700;
+            background: rgba(255,215,0,0.08);
+            border-color: #ffd700;
+            box-shadow: 0 0 25px rgba(255,215,0,0.35);
+        }
         .back-btn i { font-size: 0.8rem; }
+
+        /* ========= ALBUM MODAL ========= */
+        .album-modal-overlay {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(2,8,24,0.92);
+            z-index: 9999;
+            display: none;
+            align-items: center; justify-content: center;
+            backdrop-filter: blur(8px);
+            padding: 20px;
+        }
+        .album-modal-overlay.active { display: flex; }
+
+        .album-modal {
+            background: #040f24;
+            border: 1px solid rgba(0,212,255,0.3);
+            max-width: 560px; width: 100%;
+            position: relative;
+            clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+            animation: modal-in 0.3s ease forwards;
+        }
+        @keyframes modal-in {
+            from { opacity: 0; transform: scale(0.92) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .album-modal::before {
+            content: '';
+            position: absolute; top: 0; right: 0;
+            width: 24px; height: 24px;
+            background: var(--blue);
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+            opacity: 0.5;
+        }
+        .modal-cover {
+            width: 100%; aspect-ratio: 1;
+            max-height: 220px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.8);
+        }
+        .modal-body { padding: 24px; }
+        .modal-meta {
+            display: flex; justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .modal-year {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.7rem; color: var(--blue); letter-spacing: 2px;
+        }
+        .modal-genre {
+            font-size: 0.65rem; color: var(--grey);
+            border: 1px solid rgba(0,212,255,0.2);
+            padding: 2px 8px; font-family: 'Orbitron', monospace;
+            letter-spacing: 1px;
+        }
+        .modal-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem; font-weight: 700;
+            color: var(--white); letter-spacing: 3px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 15px rgba(0,212,255,0.3);
+        }
+        .modal-desc {
+            font-size: 0.9rem; color: var(--grey);
+            line-height: 1.7; margin-bottom: 20px;
+        }
+        .modal-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent);
+            margin-bottom: 20px;
+        }
+        .modal-platforms-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.65rem; letter-spacing: 4px;
+            color: rgba(0,212,255,0.5); margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+        .modal-platforms {
+            display: flex; flex-wrap: wrap; gap: 10px;
+        }
+        .modal-platform-btn {
+            display: flex; align-items: center; gap: 8px;
+            padding: 10px 16px;
+            text-decoration: none;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.65rem; letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-radius: 0;
+            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+        }
+        .modal-platform-btn.spotify {
+            background: rgba(29,185,84,0.1);
+            border: 1px solid rgba(29,185,84,0.3);
+            color: #1db954;
+        }
+        .modal-platform-btn.spotify:hover {
+            background: rgba(29,185,84,0.2);
+            box-shadow: 0 0 15px rgba(29,185,84,0.3);
+        }
+        .modal-platform-btn.youtube {
+            background: rgba(255,0,0,0.08);
+            border: 1px solid rgba(255,0,0,0.25);
+            color: #ff4444;
+        }
+        .modal-platform-btn.youtube:hover {
+            background: rgba(255,0,0,0.15);
+            box-shadow: 0 0 15px rgba(255,0,0,0.3);
+        }
+        .modal-platform-btn.apple {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #f0f0f0;
+        }
+        .modal-platform-btn.apple:hover {
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 0 15px rgba(255,255,255,0.15);
+        }
+        .modal-close {
+            position: absolute; top: 12px; left: 14px;
+            background: none; border: none;
+            color: var(--grey); font-size: 1.2rem;
+            cursor: pointer; transition: color 0.3s;
+            z-index: 10; font-family: 'Orbitron', monospace;
+        }
+        .modal-close:hover { color: var(--blue); }
 
         /* ========= HERO LOGO ========= */
         .hero-logo {
@@ -664,6 +801,8 @@
                 card.className = 'album-card';
                 card.setAttribute('data-status', album.status);
                 card.style.animationDelay = (i * 0.1) + 's';
+                card.style.cursor = 'pointer';
+                card.onclick = () => openModal(album);
 
                 card.innerHTML = `
                     <div class="album-cover">
@@ -675,6 +814,8 @@
                             <div class="coming-soon-text">Coming Soon</div>
                         </div>` : ''}
                         <div class="scan-line"></div>
+                        <!-- أيقونة نقر -->
+                        <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.3);padding:4px 8px;font-family:Orbitron,monospace;font-size:0.55rem;letter-spacing:2px;color:var(--blue);">INFO →</div>
                     </div>
                     <div class="album-info">
                         <div class="album-meta">
@@ -683,25 +824,55 @@
                         </div>
                         <div class="album-title">${album.title}</div>
                         <div class="album-desc">${album.description}</div>
-                        ${!isComingSoon ? `
-                        <div class="album-btns">
-                            <a href="${album.spotifyUrl}" class="btn-spotify" target="_blank">
-                                <i class="fab fa-spotify"></i> Spotify
-                            </a>
-                            <a href="${album.youtubeUrl}" class="btn-yt" target="_blank">
-                                <i class="fab fa-youtube"></i> YouTube
-                            </a>
-                        </div>` : `
-                        <div class="album-btns">
-                            <div class="btn-spotify" style="opacity:0.4;cursor:default;">
-                                <i class="fas fa-lock"></i> Not Yet Released
-                            </div>
-                        </div>`}
                     </div>
                 `;
                 grid.appendChild(card);
             });
         }
+
+        // ===== ALBUM MODAL =====
+        function openModal(album) {
+            const isComingSoon = album.status === 'coming_soon';
+            const modal = document.getElementById('albumModal');
+            const overlay = document.getElementById('albumModalOverlay');
+
+            document.getElementById('modalCover').src = album.cover;
+            document.getElementById('modalCover').onerror = function() { this.src = 'Zaki_King_Music_Logo.jpg'; };
+            document.getElementById('modalTitle').textContent = album.title;
+            document.getElementById('modalYear').textContent = album.year;
+            document.getElementById('modalGenre').textContent = album.genre;
+            document.getElementById('modalDesc').textContent = album.description;
+
+            const platforms = document.getElementById('modalPlatforms');
+            if (isComingSoon) {
+                platforms.innerHTML = `<div style="color:rgba(0,212,255,0.4);font-family:Orbitron,monospace;font-size:0.7rem;letter-spacing:3px;">NOT YET RELEASED</div>`;
+            } else {
+                platforms.innerHTML = `
+                    <a href="${album.spotifyUrl}" class="modal-platform-btn spotify" target="_blank">
+                        <i class="fab fa-spotify"></i> Spotify
+                    </a>
+                    <a href="${album.youtubeUrl}" class="modal-platform-btn youtube" target="_blank">
+                        <i class="fab fa-youtube"></i> YouTube
+                    </a>
+                    <a href="https://music.apple.com/search?term=${encodeURIComponent(album.title + ' Zaki King')}" class="modal-platform-btn apple" target="_blank">
+                        <i class="fab fa-apple"></i> Apple Music
+                    </a>
+                `;
+            }
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('albumModalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // إغلاق بالضغط خارج الـ modal
+        document.getElementById('albumModalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
 
         function filterAlbums(filter) {
             currentFilter = filter;
@@ -717,7 +888,6 @@
             renderAlbums(currentFilter, '');
         }
 
-        // Search input listener
         document.getElementById('searchInput').addEventListener('input', function() {
             currentSearch = this.value;
             const clearBtn = document.getElementById('searchClear');
@@ -729,8 +899,26 @@
             renderAlbums(currentFilter, currentSearch);
         });
 
-        // Init
         renderAlbums('all');
     </script>
+
+    <!-- ALBUM MODAL -->
+    <div class="album-modal-overlay" id="albumModalOverlay">
+        <div class="album-modal" id="albumModal">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <img class="modal-cover" id="modalCover" src="" alt="">
+            <div class="modal-body">
+                <div class="modal-meta">
+                    <span class="modal-year" id="modalYear"></span>
+                    <span class="modal-genre" id="modalGenre"></span>
+                </div>
+                <div class="modal-title" id="modalTitle"></div>
+                <div class="modal-desc" id="modalDesc"></div>
+                <div class="modal-divider"></div>
+                <div class="modal-platforms-title">Listen On</div>
+                <div class="modal-platforms" id="modalPlatforms"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
