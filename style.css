@@ -23,30 +23,28 @@ body {
 /* ========================================
    ALAN WALKER BROKEN LINES — كل الأقسام
    ======================================== */
+section {
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 5%;
+    min-height: 100vh;
+    z-index: 1;
+}
 
-/* خط منكسر SVG عام يظهر أعلى كل قسم */
 section::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 3px;
     background: linear-gradient(90deg,
-        transparent 0%,
-        transparent 5%,
-        rgba(255,215,0,0.6) 5%,
-        rgba(255,215,0,0.6) 8%,
-        transparent 8%,
-        transparent 12%,
-        rgba(255,215,0,0.3) 12%,
-        rgba(255,215,0,0.3) 55%,
-        transparent 55%,
-        transparent 58%,
-        rgba(255,215,0,0.5) 58%,
-        rgba(255,215,0,0.5) 62%,
-        transparent 62%,
-        transparent 65%,
-        rgba(255,215,0,0.2) 65%,
-        rgba(255,215,0,0.2) 100%
+        transparent 0%, transparent 5%,
+        rgba(255,215,0,0.7) 5%, rgba(255,215,0,0.7) 8%,
+        transparent 8%, transparent 12%,
+        rgba(255,215,0,0.4) 12%, rgba(255,215,0,0.4) 55%,
+        transparent 55%, transparent 58%,
+        rgba(255,215,0,0.6) 58%, rgba(255,215,0,0.6) 62%,
+        transparent 62%, transparent 65%,
+        rgba(255,215,0,0.2) 65%, rgba(255,215,0,0.2) 100%
     );
     z-index: 2;
     pointer-events: none;
@@ -58,108 +56,19 @@ section::after {
     bottom: 0; left: 0;
     width: 100%; height: 2px;
     background: linear-gradient(90deg,
-        rgba(255,215,0,0.15) 0%,
-        rgba(255,215,0,0.15) 20%,
-        transparent 20%,
-        transparent 23%,
-        rgba(255,215,0,0.3) 23%,
-        rgba(255,215,0,0.3) 70%,
-        transparent 70%,
-        transparent 73%,
-        rgba(255,215,0,0.15) 73%,
-        rgba(255,215,0,0.15) 100%
+        rgba(255,215,0,0.15) 0%, rgba(255,215,0,0.15) 20%,
+        transparent 20%, transparent 23%,
+        rgba(255,215,0,0.3) 23%, rgba(255,215,0,0.3) 70%,
+        transparent 70%, transparent 73%,
+        rgba(255,215,0,0.15) 73%, rgba(255,215,0,0.15) 100%
     );
     z-index: 2;
     pointer-events: none;
 }
 
-/* زاوية Alan Walker — يسار أعلى كل قسم */
-section .aw-corner-tl {
-    position: absolute;
-    top: 8px; left: 5%;
-    pointer-events: none;
-    z-index: 3;
-}
-
-/* خطوط جانبية ذهبية على كل قسم */
-section .aw-side-decor-left {
-    position: absolute;
-    top: 0; left: 0;
-    width: 180px; height: 80px;
-    pointer-events: none; z-index: 3;
-    overflow: visible;
-}
-
-section .aw-side-decor-right {
-    position: absolute;
-    top: 0; right: 0;
-    width: 180px; height: 80px;
-    pointer-events: none; z-index: 3;
-    overflow: visible;
-}
-
-/* ========================================
-   خطوط Alan Walker داخل كل قسم بـ CSS
-   ======================================== */
-
-/* about */
-#about { position: relative; }
-#about::before {
-    background: linear-gradient(90deg,
-        transparent 0%, transparent 3%,
-        rgba(255,215,0,0.7) 3%, rgba(255,215,0,0.7) 7%,
-        transparent 7%, transparent 10%,
-        rgba(255,215,0,0.4) 10%, rgba(255,215,0,0.4) 60%,
-        transparent 60%, transparent 63%,
-        rgba(255,215,0,0.6) 63%, rgba(255,215,0,0.6) 67%,
-        transparent 67%, transparent 70%,
-        rgba(255,215,0,0.2) 70%, rgba(255,215,0,0.2) 100%
-    );
-}
-
-/* music */
-#music { position: relative; }
-
-/* gallery */
-#gallery { position: relative; }
-#gallery::before {
-    background: linear-gradient(90deg,
-        transparent 0%, transparent 8%,
-        rgba(255,215,0,0.5) 8%, rgba(255,215,0,0.5) 12%,
-        transparent 12%, transparent 15%,
-        rgba(255,215,0,0.3) 15%, rgba(255,215,0,0.3) 65%,
-        transparent 65%, transparent 68%,
-        rgba(255,215,0,0.4) 68%, rgba(255,215,0,0.4) 72%,
-        transparent 72%, transparent 100%
-    );
-}
-
-/* contact */
-#contact { position: relative; }
-#contact::before {
-    background: linear-gradient(90deg,
-        transparent 0%, transparent 5%,
-        rgba(255,215,0,0.6) 5%, rgba(255,215,0,0.6) 10%,
-        transparent 10%, transparent 13%,
-        rgba(255,215,0,0.35) 13%, rgba(255,215,0,0.35) 58%,
-        transparent 58%, transparent 62%,
-        rgba(255,215,0,0.5) 62%, rgba(255,215,0,0.5) 66%,
-        transparent 66%, transparent 100%
-    );
-}
-
-/* ========================================
-   خطوط Alan Walker — SVG ثابتة في كل قسم
-   ======================================== */
 .aw-top-line {
     position: absolute;
     top: 0; left: 0; width: 100%;
-    height: 50px; pointer-events: none; z-index: 3;
-    overflow: visible;
-}
-.aw-bottom-line {
-    position: absolute;
-    bottom: 0; left: 0; width: 100%;
     height: 50px; pointer-events: none; z-index: 3;
     overflow: visible;
 }
@@ -195,13 +104,8 @@ section .aw-side-decor-right {
 }
 
 /* ========================================
-   قائمة الهاتف — خطوط Alan Walker
+   NAV
    ======================================== */
-.nav-links {
-    position: relative;
-}
-
-/* NAV */
 nav {
     position: fixed; top: 0; width: 100%;
     padding: 1.5rem 5%;
@@ -209,12 +113,34 @@ nav {
     z-index: 1000;
     background: rgba(0,0,0,0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 2px solid var(--gold);
-    box-shadow: 0 5px 20px rgba(255,215,0,0.3);
+    border-bottom: 1px solid rgba(255,215,0,0.4);
+    box-shadow: 0 5px 20px rgba(255,215,0,0.15);
 }
+.aw-nav { position: relative !important; }
+.aw-nav-lines {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+}
+.aw-line-left { width: 32%; height: 100%; position: absolute; left: 0; top: 0; }
+.aw-line-right { width: 32%; height: 100%; position: absolute; right: 0; top: 0; }
+.nav-center-logo-link {
+    position: absolute; left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; display: flex; align-items: center;
+}
+.nav-center-logo {
+    height: 48px; width: auto; object-fit: contain;
+    filter: drop-shadow(0 0 12px rgba(255,215,0,0.6));
+    transition: filter 0.3s ease;
+}
+.nav-center-logo-link:hover .nav-center-logo {
+    filter: drop-shadow(0 0 22px rgba(255,215,0,1));
+}
+
 .logo {
     font-family: 'Audiowide', cursive;
-    font-size: 1.8rem; font-weight: 700;
+    font-size: 1.6rem; font-weight: 700;
     color: var(--gold);
     text-shadow: 0 0 20px rgba(255,215,0,0.8);
     letter-spacing: 2px;
@@ -230,13 +156,13 @@ nav {
     transition: transform 0.3s ease;
 }
 .logo-img:hover { transform: scale(1.1) rotate(5deg); }
-.nav-links {
-    display: flex; gap: 2.5rem; list-style: none;
-}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; position: relative; }
 .nav-links a {
     color: var(--white); text-decoration: none;
     font-weight: 600; position: relative;
     transition: all 0.3s ease;
+    font-family: 'Audiowide', cursive;
+    font-size: 0.78rem; letter-spacing: 2px;
 }
 .nav-links a::before {
     content: ''; position: absolute;
@@ -245,9 +171,8 @@ nav {
     transition: width 0.3s ease;
     box-shadow: 0 0 10px var(--gold);
 }
-.nav-links a:hover { color: var(--gold); text-shadow: 0 0 10px rgba(255,215,0,0.5); }
+.nav-links a:hover { color: var(--gold); }
 .nav-links a:hover::before { width: 100%; right: auto; left: 0; }
-
 .nav-social-row { display: none; }
 
 .hamburger {
@@ -256,7 +181,7 @@ nav {
 }
 .hamburger span {
     display: block; width: 28px; height: 3px;
-    background: var(--gold); border-radius: 3px;
+    background: var(--gold); border-radius: 0;
     transition: all 0.3s ease;
 }
 .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -264,49 +189,14 @@ nav {
 .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* ========================================
-   NAV — شعار الوسط و خطوط Alan Walker
+   HERO
    ======================================== */
-.aw-nav { position: relative !important; }
-.aw-nav-lines {
-    position: absolute; top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none; z-index: 0;
-}
-.aw-line-left {
-    width: 32%; height: 100%;
-    position: absolute; left: 0; top: 0;
-}
-.aw-line-right {
-    width: 32%; height: 100%;
-    position: absolute; right: 0; top: 0;
-}
-.nav-center-logo-link {
-    position: absolute; left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    display: flex; align-items: center;
-}
-.nav-center-logo {
-    height: 48px; width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 12px rgba(255,215,0,0.6));
-    transition: filter 0.3s ease;
-}
-.nav-center-logo-link:hover .nav-center-logo {
-    filter: drop-shadow(0 0 20px rgba(255,215,0,1));
-}
-
-/* SECTIONS */
-section { padding: 8rem 5%; position: relative; min-height: 100vh; z-index: 1; overflow: hidden; }
-
-/* HERO */
 .hero { display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .hero-content { text-align: center; z-index: 2; }
 .hero h1 {
     font-family: 'Audiowide', cursive;
     font-size: 5rem; font-weight: 900;
-    margin-bottom: 1rem; letter-spacing: 3px;
-    color: var(--white);
+    margin-bottom: 1rem; letter-spacing: 3px; color: var(--white);
     animation: glow-gold 2s ease-in-out infinite;
 }
 @keyframes glow-gold {
@@ -316,23 +206,28 @@ section { padding: 8rem 5%; position: relative; min-height: 100vh; z-index: 1; o
 .hero-subtitle { font-size: 1.5rem; color: var(--grey); margin-bottom: 3rem; font-weight: 300; }
 .cta-btn {
     display: inline-block; padding: 1.2rem 3.5rem;
-    background: linear-gradient(135deg, var(--gold), var(--dark-gold));
-    color: var(--black); text-decoration: none;
-    border-radius: 50px; font-weight: 700; font-size: 1.1rem;
+    background: transparent; color: var(--gold);
+    text-decoration: none; font-weight: 700; font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 0 30px rgba(255,215,0,0.5);
-    border: 2px solid var(--gold);
+    border: 1px solid rgba(255,215,0,0.6);
+    clip-path: polygon(16px 0%, 100% 0%, calc(100% - 16px) 100%, 0% 100%);
+    box-shadow: 0 0 20px rgba(255,215,0,0.15);
+    font-family: 'Audiowide', cursive; letter-spacing: 3px; text-transform: uppercase;
 }
-.cta-btn:hover { transform: translateY(-5px); box-shadow: 0 0 50px rgba(255,215,0,0.8); background: var(--gold); }
+.cta-btn:hover {
+    background: rgba(255,215,0,0.1);
+    box-shadow: 0 0 40px rgba(255,215,0,0.4);
+    transform: translateY(-3px);
+}
 .sound-waves {
     position: absolute; bottom: 10%; left: 50%;
     transform: translateX(-50%);
     display: flex; gap: 10px; align-items: flex-end;
 }
 .wave {
-    width: 8px; height: 50px;
+    width: 4px; height: 50px;
     background: linear-gradient(180deg, var(--gold), transparent);
-    border-radius: 10px;
+    border-radius: 0;
     animation: wave-pulse 1s ease-in-out infinite;
 }
 .wave:nth-child(1) { animation-delay: 0s; }
@@ -345,147 +240,226 @@ section { padding: 8rem 5%; position: relative; min-height: 100vh; z-index: 1; o
     50% { height: 120px; opacity: 1; }
 }
 
-/* SECTION TITLE */
+/* ========================================
+   SECTION TITLE
+   ======================================== */
 .section-title {
     font-family: 'Audiowide', cursive;
-    font-size: 3.5rem; font-weight: 800;
-    text-align: center; margin-bottom: 4rem;
-    color: var(--white);
-    text-shadow: 0 0 20px rgba(255,215,0,0.5);
+    font-size: 3rem; font-weight: 800;
+    text-align: center; margin-bottom: 4rem; color: var(--white);
+    text-shadow: 0 0 20px rgba(255,215,0,0.5); position: relative;
 }
 .section-title::after {
     content: ''; display: block;
-    width: 150px; height: 4px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 1.5rem auto;
-    box-shadow: 0 0 10px var(--gold);
+    width: 200px; height: 2px;
+    background: linear-gradient(90deg,
+        transparent, rgba(255,215,0,0.4) 10%, var(--gold) 50%, rgba(255,215,0,0.4) 90%, transparent
+    );
+    margin: 1.2rem auto;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
 }
 
-/* ABOUT */
+/* ========================================
+   ABOUT
+   ======================================== */
 .about-content {
     max-width: 1100px; margin: 0 auto;
     display: grid; grid-template-columns: 1fr 2fr;
     gap: 4rem; align-items: center;
 }
 .about-image {
-    width: 100%; aspect-ratio: 1;
-    border-radius: 20px; overflow: hidden;
-    position: relative;
-    border: 3px solid var(--gold);
-    box-shadow: 0 0 40px rgba(255,215,0,0.4);
+    width: 100%; aspect-ratio: 1; overflow: hidden; position: relative;
     background: var(--dark-grey);
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    border: 1px solid rgba(255,215,0,0.4);
+    box-shadow: 0 0 40px rgba(255,215,0,0.2);
 }
 .about-image::before {
-    content: ''; position: absolute;
-    top: -50%; left: -50%;
+    content: ''; position: absolute; top: -50%; left: -50%;
     width: 200%; height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,215,0,0.2), transparent);
-    animation: shine 3s linear infinite;
+    background: linear-gradient(45deg, transparent, rgba(255,215,0,0.08), transparent);
+    animation: shine 4s linear infinite; z-index: 0;
 }
 @keyframes shine { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .about-image img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
-.about-text h3 { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--gold); text-shadow: 0 0 15px rgba(255,215,0,0.5); }
-.about-text p { font-size: 1.15rem; line-height: 2; color: var(--grey); margin-bottom: 1.5rem; }
+.about-text h3 {
+    font-size: 2rem; margin-bottom: 1.5rem; color: var(--gold);
+    font-family: 'Audiowide', cursive; position: relative; padding-bottom: 12px;
+}
+.about-text h3::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 80%; height: 1px;
+    background: linear-gradient(90deg,
+        rgba(255,215,0,0.8) 0%, rgba(255,215,0,0.8) 30%,
+        transparent 30%, transparent 35%,
+        rgba(255,215,0,0.3) 35%, rgba(255,215,0,0.3) 100%
+    );
+}
+.about-text p { font-size: 1.1rem; line-height: 2; color: var(--grey); margin-bottom: 1.5rem; }
 
-/* MUSIC */
+/* ========================================
+   MUSIC CARDS — Alan Walker Style
+   ======================================== */
 .music-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem; max-width: 1200px; margin: 0 auto;
+    gap: 2.5rem; max-width: 1200px; margin: 0 auto;
 }
 .music-card {
-    background: var(--dark-grey); border-radius: 20px;
-    overflow: hidden; transition: all 0.4s ease;
-    border: 2px solid rgba(255,215,0,0.2); position: relative;
+    background: rgba(10,10,0,0.9); overflow: hidden;
+    transition: all 0.4s ease; position: relative;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    border: 1px solid rgba(255,215,0,0.2);
+}
+.music-card::before {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 20px; height: 20px;
+    background: var(--gold);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    opacity: 0.7; z-index: 2;
+}
+.music-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg,
+        rgba(255,215,0,0.6) 0%, rgba(255,215,0,0.6) 20%,
+        transparent 20%, transparent 25%,
+        rgba(255,215,0,0.3) 25%, rgba(255,215,0,0.3) 100%
+    );
+    z-index: 2;
 }
 .music-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 60px rgba(255,215,0,0.4);
-    border-color: var(--gold);
+    transform: translateY(-10px);
+    border-color: rgba(255,215,0,0.7);
+    box-shadow: 0 20px 60px rgba(255,215,0,0.2);
 }
 .music-cover {
-    width: 100%; aspect-ratio: 1 / 1;
-    background: linear-gradient(135deg, #1a1400, #332800);
-    position: relative; overflow: hidden;
+    width: 100%; aspect-ratio: 1/1;
+    position: relative; overflow: hidden; background: #0a0a00;
 }
-.music-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.music-cover img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.5s ease; filter: brightness(0.85);
+}
+.music-card:hover .music-cover img { transform: scale(1.05); filter: brightness(1); }
 .card-geometry {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px; height: 100px; pointer-events: none;
+    position: absolute; top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.06), transparent);
+    pointer-events: none; animation: card-scan 4s linear infinite;
 }
-.geo-shape {
-    width: 100%; height: 100%;
-    border: 3px solid var(--gold); border-radius: 50%;
-    animation: pulse-rotate 3s ease-in-out infinite;
-    box-shadow: 0 0 20px var(--gold);
+@keyframes card-scan { to { left: 150%; } }
+.geo-shape { display: none; }
+.music-info { padding: 1.5rem; background: rgba(0,0,0,0.85); position: relative; }
+.music-info::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg,
+        rgba(255,215,0,0.5) 0%, rgba(255,215,0,0.5) 40%,
+        transparent 40%, transparent 45%,
+        rgba(255,215,0,0.2) 45%, rgba(255,215,0,0.2) 100%
+    );
 }
-@keyframes pulse-rotate {
-    0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.5; }
-    50% { transform: rotate(180deg) scale(1.2); opacity: 1; }
+.music-info h3 {
+    font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--white);
+    font-family: 'Audiowide', cursive; letter-spacing: 2px;
 }
-.music-info { padding: 2rem; background: rgba(0,0,0,0.5); }
-.music-info h3 { font-size: 1.6rem; margin-bottom: 0.8rem; color: var(--white); }
-.music-info p { color: var(--grey); font-size: 1rem; margin-bottom: 1.5rem; }
+.music-info p { color: var(--grey); font-size: 0.9rem; margin-bottom: 1.2rem; }
 .listen-btn {
-    display: inline-block; padding: 0.8rem 2rem;
-    background: transparent; border: 2px solid var(--gold);
-    color: var(--gold); text-decoration: none;
-    border-radius: 30px; font-weight: 700;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(255,215,0,0.3);
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 0.6rem 1.5rem; background: transparent;
+    border: 1px solid rgba(255,215,0,0.5); color: var(--gold);
+    text-decoration: none; font-weight: 600; font-size: 0.78rem;
+    letter-spacing: 2px; text-transform: uppercase;
+    transition: all 0.3s ease; font-family: 'Audiowide', cursive;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
 }
-.listen-btn:hover { background: var(--gold); color: var(--black); box-shadow: 0 0 25px rgba(255,215,0,0.6); }
+.listen-btn::before { content: '▶'; font-size: 0.6rem; }
+.listen-btn:hover {
+    background: rgba(255,215,0,0.1);
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(255,215,0,0.3);
+}
 
-/* GALLERY */
+/* ========================================
+   GALLERY
+   ======================================== */
 .gallery-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem; max-width: 1200px; margin: 0 auto;
+    gap: 1.5rem; max-width: 1200px; margin: 0 auto;
 }
 .gallery-item {
     aspect-ratio: 1; background: var(--dark-grey);
-    border-radius: 15px; overflow: hidden;
-    position: relative; cursor: pointer;
-    border: 2px solid rgba(255,215,0,0.2);
-    transition: all 0.4s ease;
+    overflow: hidden; position: relative; cursor: pointer;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+    border: 1px solid rgba(255,215,0,0.15); transition: all 0.4s ease;
 }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.gallery-item::before {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 15px; height: 15px; background: rgba(255,215,0,0.5);
+    clip-path: polygon(100% 0, 0 0, 100% 100%); z-index: 3;
+}
+.gallery-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease; filter: brightness(0.8);
+}
 .gallery-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(184,134,11,0.3));
-    opacity: 0; transition: opacity 0.3s ease;
+    background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s ease;
     display: flex; align-items: center; justify-content: center;
 }
-.overlay-shape { width: 80px; height: 80px; border: 3px solid white; transform: rotate(45deg); animation: rotate 4s linear infinite; }
+.overlay-shape {
+    width: 60px; height: 60px; border: 2px solid var(--gold);
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    animation: rotate 4s linear infinite;
+}
 @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.gallery-item:hover { transform: scale(1.05); border-color: var(--gold); box-shadow: 0 15px 40px rgba(255,215,0,0.4); }
-.gallery-item:hover img { transform: scale(1.1); }
+.gallery-item:hover {
+    border-color: rgba(255,215,0,0.6);
+    box-shadow: 0 10px 40px rgba(255,215,0,0.25);
+}
+.gallery-item:hover img { transform: scale(1.08); filter: brightness(0.7); }
 .gallery-item:hover .gallery-overlay { opacity: 1; }
 
-/* CONTACT */
+/* ========================================
+   CONTACT CARDS — Alan Walker Style
+   ======================================== */
 .contact-content { max-width: 900px; margin: 0 auto; text-align: center; }
-.contact-content > p { font-size: 1.3rem; color: var(--grey); margin-bottom: 4rem; line-height: 2; }
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2rem; }
+.contact-content > p { font-size: 1.2rem; color: var(--grey); margin-bottom: 3.5rem; line-height: 2; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; }
 .contact-card {
-    background: var(--dark-grey); padding: 2.5rem 1.5rem;
-    border-radius: 15px; text-decoration: none;
-    color: var(--white); border: 2px solid rgba(255,215,0,0.2);
-    transition: all 0.3s ease; position: relative;
-    overflow: hidden; display: block;
+    background: rgba(8,8,0,0.9); padding: 2rem 1.2rem;
+    text-decoration: none; color: var(--white);
+    border: 1px solid rgba(255,215,0,0.18); transition: all 0.3s ease;
+    position: relative; display: block;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
 }
 .contact-card::before {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 14px; height: 14px; background: rgba(255,215,0,0.4);
+    clip-path: polygon(100% 0, 0 0, 100% 100%); transition: background 0.3s ease;
+}
+.contact-card::after {
     content: ''; position: absolute; top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.06), transparent);
     transition: left 0.5s ease;
 }
-.contact-card:hover::before { left: 100%; }
-.contact-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(255,215,0,0.3); }
-.contact-icon { font-size: 3rem; margin-bottom: 1rem; }
-.contact-icon i { font-size: 3.5rem; transition: transform 0.3s ease; }
-.contact-card:hover .contact-icon i { transform: scale(1.2); }
-.contact-card h4 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--gold); }
-.contact-card p { font-size: 0.95rem; color: var(--grey); }
+.contact-card:hover::after { left: 150%; }
+.contact-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255,215,0,0.6);
+    box-shadow: 0 12px 35px rgba(255,215,0,0.2);
+}
+.contact-card:hover::before { background: var(--gold); }
+.contact-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.contact-icon i { font-size: 2.8rem; transition: transform 0.3s ease; }
+.contact-card:hover .contact-icon i { transform: scale(1.15); }
+.contact-card h4 {
+    margin-bottom: 0.4rem; color: var(--gold);
+    font-family: 'Audiowide', cursive; letter-spacing: 1px; font-size: 0.82rem;
+}
+.contact-card p { font-size: 0.78rem; color: var(--grey); }
 
 .fa-instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .fa-tiktok { color: #00f2ea; }
@@ -494,23 +468,21 @@ section { padding: 8rem 5%; position: relative; min-height: 100vh; z-index: 1; o
 .fa-spotify { color: #1db954; }
 .fa-x-twitter { color: var(--white); }
 
-/* FOOTER */
+/* ========================================
+   FOOTER
+   ======================================== */
 footer {
     text-align: center; padding: 3rem 5%;
-    background: rgba(0,0,0,0.5);
-    border-top: 2px solid var(--gold);
-    position: relative;
+    background: rgba(0,0,0,0.7); position: relative;
 }
-/* خط منكسر في الـ footer */
 footer::before {
-    content: '';
-    position: absolute; top: 0; left: 0;
+    content: ''; position: absolute; top: 0; left: 0;
     width: 100%; height: 2px;
     background: linear-gradient(90deg,
         transparent 0%, transparent 4%,
         rgba(255,215,0,0.8) 4%, rgba(255,215,0,0.8) 8%,
         transparent 8%, transparent 11%,
-        rgba(255,215,0,0.5) 11%, rgba(255,215,0,0.5) 70%,
+        rgba(255,215,0,0.4) 11%, rgba(255,215,0,0.4) 70%,
         transparent 70%, transparent 73%,
         rgba(255,215,0,0.7) 73%, rgba(255,215,0,0.7) 77%,
         transparent 77%, transparent 100%
@@ -524,7 +496,7 @@ footer p { color: var(--grey); font-size: 1rem; }
    ======================================== */
 @media (max-width: 900px) {
     .hero h1 { font-size: 3.5rem; }
-    .section-title { font-size: 2.8rem; }
+    .section-title { font-size: 2.5rem; }
     .about-content { grid-template-columns: 1fr; gap: 2rem; }
     .about-image { max-width: 350px; margin: 0 auto; }
 }
@@ -534,24 +506,19 @@ footer p { color: var(--grey); font-size: 1rem; }
    ======================================== */
 @media (max-width: 768px) {
     .hamburger { display: flex; }
-
     .nav-links {
         position: fixed; top: 0; right: -100%;
-        width: 75%; height: 100vh;
+        width: 78%; height: 100vh;
         background: rgba(0,0,0,0.98);
-        flex-direction: column;
-        justify-content: center; align-items: center;
+        flex-direction: column; justify-content: center; align-items: center;
         gap: 2rem; font-size: 1.2rem;
         transition: right 0.4s ease;
-        border-left: 2px solid var(--gold);
+        border-left: 1px solid rgba(255,215,0,0.4);
         z-index: 1050;
     }
-
-    /* خطوط Alan Walker داخل القائمة الجانبية للهاتف */
     .nav-links::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 3px;
+        content: ''; position: absolute; top: 0; left: 0;
+        width: 100%; height: 3px;
         background: linear-gradient(90deg,
             rgba(255,215,0,0.8) 0%, rgba(255,215,0,0.8) 15%,
             transparent 15%, transparent 20%,
@@ -561,89 +528,75 @@ footer p { color: var(--grey); font-size: 1rem; }
         );
     }
     .nav-links::after {
-        content: '';
-        position: absolute;
-        bottom: 0; left: 0; width: 100%; height: 2px;
+        content: ''; position: absolute; bottom: 0; left: 0;
+        width: 100%; height: 2px;
         background: linear-gradient(90deg,
             transparent 0%, transparent 10%,
             rgba(255,215,0,0.4) 10%, rgba(255,215,0,0.4) 90%,
             transparent 90%, transparent 100%
         );
     }
-
-    /* زوايا ذهبية داخل القائمة */
-    .nav-links.open::before { display: block; }
-
     .nav-links.open { right: 0; }
-    .nav-links a { font-size: 1.3rem; }
-
-    /* خط فاصل ذهبي منكسر بين روابط الهاتف */
-    .nav-links li a {
-        position: relative;
-        padding-bottom: 8px;
+    .nav-links a { font-size: 1.1rem; }
+    .nav-links li:not(.nav-social-row) {
+        position: relative; padding-bottom: 10px;
+        width: 80%; text-align: center;
     }
-    .nav-links li:not(.nav-social-row) a::after {
-        content: '';
-        position: absolute;
-        bottom: 0; left: 0;
+    .nav-links li:not(.nav-social-row)::after {
+        content: ''; position: absolute; bottom: 0; left: 0;
         width: 100%; height: 1px;
         background: linear-gradient(90deg,
-            transparent, rgba(255,215,0,0.2), transparent
+            transparent, rgba(255,215,0,0.15) 10%,
+            rgba(255,215,0,0.3) 30%, transparent 30%,
+            transparent 35%, rgba(255,215,0,0.2) 35%, rgba(255,215,0,0.2) 100%
         );
     }
-
     .nav-social-row {
-        display: flex !important;
-        gap: 1.5rem;
-        margin-top: 1rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid rgba(255,215,0,0.3);
-        width: 80%;
-        justify-content: center;
+        display: flex !important; gap: 1.2rem; margin-top: 1rem;
+        padding-top: 1.5rem; border-top: 1px solid rgba(255,215,0,0.25);
+        width: 80%; justify-content: center;
     }
-    .nav-social-row a { font-size: 1.6rem; transition: transform 0.3s ease; }
-    .nav-social-row a:hover { transform: scale(1.2); }
+    .nav-social-row a {
+        font-size: 1.4rem; transition: transform 0.3s ease;
+        display: flex; align-items: center; justify-content: center;
+        width: 40px; height: 40px;
+        border: 1px solid rgba(255,215,0,0.2);
+        clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+        background: rgba(255,215,0,0.03);
+    }
+    .nav-social-row a:hover {
+        border-color: rgba(255,215,0,0.6); background: rgba(255,215,0,0.08);
+    }
     .nav-social-row .fa-tiktok { color: #00f2ea; }
     .nav-social-row .fa-youtube { color: #ff0000; }
     .nav-social-row .fa-spotify { color: #1db954; }
     .nav-social-row .fa-x-twitter { color: var(--white); }
-
     nav { padding: 1rem 4%; }
-    .logo { font-size: 1.1rem; gap: 0.5rem; }
-    .logo-img { width: 38px; height: 38px; }
-
-    /* إخفاء شعار الوسط في الهاتف */
+    .logo { font-size: 1rem; gap: 0.5rem; }
+    .logo-img { width: 36px; height: 36px; }
     .nav-center-logo-link { display: none; }
-    /* إخفاء خطوط الـ nav في الهاتف */
     .aw-nav-lines { display: none; }
-
-    .hero h1 { font-size: 2.2rem; letter-spacing: 1px; }
+    .hero h1 { font-size: 2rem; letter-spacing: 1px; }
     .hero-subtitle { font-size: 1rem; margin-bottom: 2rem; }
-    .cta-btn { padding: 1rem 2.5rem; font-size: 1rem; }
-
+    .cta-btn { padding: 0.9rem 2rem; font-size: 0.8rem; }
     section { padding: 5rem 4%; min-height: auto; }
     .section-title { font-size: 1.8rem; margin-bottom: 2.5rem; }
-
     .about-content { grid-template-columns: 1fr; gap: 2rem; }
-    .about-image { max-width: 280px; margin: 0 auto; }
-    .about-text h3 { font-size: 1.5rem; }
+    .about-image { max-width: 260px; margin: 0 auto; }
+    .about-text h3 { font-size: 1.4rem; }
     .about-text p { font-size: 1rem; }
-
     .music-grid { grid-template-columns: 1fr; gap: 2rem; }
     .gallery-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-
     .contact-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
     .contact-card { padding: 1.5rem 1rem; }
-    .contact-icon i { font-size: 2.2rem; }
-    .contact-card h4 { font-size: 1rem; }
-    .contact-card p { font-size: 0.8rem; }
-
-    /* خطوط الأقسام أصغر في الهاتف */
+    .contact-icon i { font-size: 2rem; }
+    .contact-card h4 { font-size: 0.72rem; }
+    .contact-card p { font-size: 0.72rem; }
     .aw-side-left, .aw-side-right { display: none; }
     .aw-top-line { height: 30px; }
 }
 
 @media (max-width: 400px) {
-    .hero h1 { font-size: 1.7rem; }
+    .hero h1 { font-size: 1.6rem; }
     .gallery-grid { grid-template-columns: 1fr; }
 }

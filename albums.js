@@ -15,6 +15,7 @@ const ALBUMS = [
         cover: "Zaki_King_Music_Logo.jpg",
         spotifyUrl: "#",
         youtubeUrl: "#",
+        pushfmUrl: "#",
         year: "2026",
         genre: "Unknown",
         status: "coming_soon"
@@ -28,6 +29,7 @@ const ALBUMS = [
         cover: "Steel_Throne.jpg",
         spotifyUrl: "https://open.spotify.com/track/4W1HVNX3ohK6YTajVvfbbi?si=I8r4hkMuTJSHS91wEWHKog",
         youtubeUrl: "https://www.youtube.com/@zakikingmusic",
+        pushfmUrl: "https://push.fm/YOUR_STEEL_THRONE_LINK",
         year: "2025",
         genre: "Epic / Cinematic",
         status: "released"
@@ -41,19 +43,35 @@ const ALBUMS = [
         cover: "Dimensions_Of_Memory.jpg",
         spotifyUrl: "https://open.spotify.com/artist/5SY0LBMYUXGyoj2UwxLSXu/",
         youtubeUrl: "https://www.youtube.com/@zakikingmusic",
+        pushfmUrl: "https://push.fm/YOUR_DIMENSIONS_LINK",
         year: "2024",
         genre: "Orchestral / Ambient",
+        status: "released"
+    },
+
+    // --- ألبوم 2 ---
+    {
+        id: 2,
+        title: "The Drop",
+        description: "Electronic music based on powerful rhythms and beats.",
+        cover: "The_Drop.png",
+        spotifyUrl: "https://open.spotify.com/track/78DU6QcJaSGLB8cUQASYPn?si=_5yEO4J2R1uHWRmm0hiTpw",
+        youtubeUrl: "https://www.youtube.com/@zakikingmusic",
+        pushfmUrl: "https://push.fm/YOUR_THE_DROP_LINK",
+        year: "2023",
+        genre: "Electronic",
         status: "released"
     },
 
     // --- ألبوم 1 ---
     {
         id: 1,
-        title: "The Drop",
-        description: "Electronic music based on powerful rhythms and beats.",
-        cover: "The_Drop.png",
-        spotifyUrl: "https://open.spotify.com/track/78DU6QcJaSGLB8cUQASYPn?si=_5yEO4J2R1uHWRmm0hiTpw",
+        title: "MONSTER",
+        description: "The track that started it all — raw energy and power.",
+        cover: "Zaki_King_Music_Logo.jpg",
+        spotifyUrl: "https://open.spotify.com/artist/5SY0LBMYUXGyoj2UwxLSXu/",
         youtubeUrl: "https://www.youtube.com/@zakikingmusic",
+        pushfmUrl: "https://push.fm/YOUR_MONSTER_LINK",
         year: "2023",
         genre: "Electronic",
         status: "released"
@@ -61,8 +79,4 @@ const ALBUMS = [
 
 ];
 
-// ============================================
-// لا تعدل ما تحت هذا السطر
-// ============================================
 if (typeof module !== 'undefined') module.exports = ALBUMS;
-
