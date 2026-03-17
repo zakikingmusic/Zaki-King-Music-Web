@@ -4,954 +4,298 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Releases — Zaki King Music</title>
-    <meta name="description" content="All releases by Zaki King Music — Epic, Electronic and Cinematic tracks.">
     <link rel="icon" type="image/jpeg" href="Zaki_King_Music_Logo.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root {
-            --blue: #00d4ff;
-            --blue-dark: #0066cc;
-            --blue-deep: #003380;
-            --blue-glow: rgba(0, 212, 255, 0.4);
-            --bg: #020818;
-            --bg2: #040f24;
-            --white: #e8f4ff;
-            --grey: #5a7a99;
-        }
+        :root { --blue:#00d4ff; --glow:rgba(0,212,255,0.4); --bg:#020818; --bg2:#040f24; --white:#e8f4ff; --grey:#5a7a99; }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'Exo 2',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;min-height:100vh;}
+        body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(0,212,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.04) 1px,transparent 1px);background-size:60px 60px;z-index:0;pointer-events:none;}
+
+        .lines-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;}
+        .lh{position:absolute;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;animation:sh 8s linear infinite;}
+        .lh:nth-child(1){top:20%}.lh:nth-child(2){top:50%;animation-delay:3s}.lh:nth-child(3){top:80%;animation-delay:6s}
+        .lv{position:absolute;top:0;height:100%;width:1px;background:linear-gradient(180deg,transparent,var(--blue),transparent);opacity:0;animation:sv 10s linear infinite;}
+        .lv:nth-child(4){left:25%;animation-delay:1s}.lv:nth-child(5){left:75%;animation-delay:5s}
+        @keyframes sh{0%{opacity:0;transform:translateX(-100%)}10%{opacity:0.6}90%{opacity:0.6}100%{opacity:0;transform:translateX(100%)}}
+        @keyframes sv{0%{opacity:0;transform:translateY(-100%)}10%{opacity:0.4}90%{opacity:0.4}100%{opacity:0;transform:translateY(100%)}}
+
+        .cr{position:fixed;width:80px;height:80px;z-index:1;pointer-events:none;opacity:0.5;}
+        .cr-tl{top:20px;left:20px;border-top:2px solid var(--blue);border-left:2px solid var(--blue);}
+        .cr-tr{top:20px;right:20px;border-top:2px solid var(--blue);border-right:2px solid var(--blue);}
+        .cr-bl{bottom:20px;left:20px;border-bottom:2px solid var(--blue);border-left:2px solid var(--blue);}
+        .cr-br{bottom:20px;right:20px;border-bottom:2px solid var(--blue);border-right:2px solid var(--blue);}
+
+        nav{position:fixed;top:0;width:100%;padding:1.2rem 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:rgba(2,8,24,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,212,255,0.2);}
+        .nav-logo{height:44px;width:auto;object-fit:contain;filter:drop-shadow(0 0 10px var(--glow));position:absolute;left:50%;transform:translateX(-50%);}
+        .back{display:flex;align-items:center;gap:8px;color:#ffd700;text-decoration:none;font-size:0.9rem;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;font-family:'Orbitron',monospace;border:1px solid rgba(255,215,0,0.4);padding:8px 18px;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);box-shadow:0 0 15px rgba(255,215,0,0.15);}
+        .back:hover{background:rgba(255,215,0,0.08);border-color:#ffd700;box-shadow:0 0 25px rgba(255,215,0,0.35);}
+
+        .hero{padding:140px 5% 40px;text-align:center;position:relative;z-index:1;}
+        .hlabel{font-family:'Orbitron',monospace;font-size:0.75rem;letter-spacing:8px;color:var(--blue);text-transform:uppercase;margin-bottom:20px;opacity:0.7;}
+        .hero h1{font-family:'Orbitron',monospace;font-size:clamp(2.5rem,8vw,6rem);font-weight:900;letter-spacing:6px;color:var(--white);text-transform:uppercase;text-shadow:0 0 40px var(--glow),0 0 80px rgba(0,100,255,0.3);margin-bottom:16px;line-height:1.1;}
+        .hero h1 span{color:var(--blue);}
+        .hline{width:200px;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);margin:24px auto;box-shadow:0 0 10px var(--blue);}
+        .hcount{font-family:'Orbitron',monospace;font-size:0.8rem;color:var(--grey);letter-spacing:4px;}
+
+        .sb-wrap{margin-top:28px;display:flex;justify-content:center;}
+        .sb{position:relative;width:100%;max-width:480px;display:flex;align-items:center;}
+        .si{position:absolute;left:16px;color:var(--blue);font-size:0.85rem;opacity:0.7;z-index:1;}
+        #si{width:100%;padding:14px 50px 14px 44px;background:rgba(4,15,36,0.9);border:1px solid rgba(0,212,255,0.25);color:var(--white);font-family:'Orbitron',monospace;font-size:0.75rem;letter-spacing:2px;outline:none;transition:all 0.3s;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);}
+        #si::placeholder{color:var(--grey);}
+        #si:focus{border-color:var(--blue);box-shadow:0 0 20px var(--glow);background:rgba(0,212,255,0.05);}
+        .sc{position:absolute;right:14px;background:none;border:none;color:var(--grey);font-size:0.8rem;cursor:pointer;display:none;}
+        .sc:hover{color:var(--blue);}
+        .sc.vis{display:block;}
+
+        .filters{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:30px 5% 40px;position:relative;z-index:1;}
+        .fb{padding:8px 24px;background:transparent;border:1px solid rgba(0,212,255,0.25);color:var(--grey);font-family:'Orbitron',monospace;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);}
+        .fb:hover,.fb.on{background:rgba(0,212,255,0.1);border-color:var(--blue);color:var(--blue);box-shadow:0 0 15px var(--glow);}
+
+        .as{padding:0 5% 100px;position:relative;z-index:1;max-width:1400px;margin:0 auto;}
+        .ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px;}
+
+        .ac{position:relative;background:rgba(4,15,36,0.8);border:1px solid rgba(0,212,255,0.15);clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));transition:all 0.4s;overflow:hidden;opacity:0;transform:translateY(30px);animation:ci 0.6s ease forwards;}
+        .ac:nth-child(1){animation-delay:0.05s}.ac:nth-child(2){animation-delay:0.15s}.ac:nth-child(3){animation-delay:0.25s}.ac:nth-child(4){animation-delay:0.35s}
+        @keyframes ci{to{opacity:1;transform:translateY(0)}}
+        .ac::after{content:'';position:absolute;top:0;right:0;width:20px;height:20px;background:var(--blue);clip-path:polygon(100% 0,0 0,100% 100%);opacity:0.6;}
+        .ac:hover{border-color:var(--blue);box-shadow:0 0 30px var(--glow);transform:translateY(-8px);}
+
+        .acover{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:var(--bg2);}
+        .acover img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;filter:brightness(0.85);}
+        .ac:hover .acover img{transform:scale(1.05);filter:brightness(1);}
+        .cso{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(2,8,24,0.85);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+        .csi{font-size:3rem;color:var(--blue);text-shadow:0 0 20px var(--blue);animation:pg 2s ease-in-out infinite;}
+        @keyframes pg{0%,100%{text-shadow:0 0 20px var(--blue)}50%{text-shadow:0 0 40px var(--blue)}}
+        .cst{font-family:'Orbitron',monospace;font-size:0.8rem;letter-spacing:4px;color:var(--blue);}
+        .sl{position:absolute;top:-100%;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);transition:top 0.4s;opacity:0.6;}
+        .ac:hover .sl{top:100%;}
+        .itag{position:absolute;bottom:10px;right:10px;background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.3);padding:4px 8px;font-family:'Orbitron',monospace;font-size:0.55rem;letter-spacing:2px;color:var(--blue);}
+
+        .ai{padding:20px;}
+        .am{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+        .ay{font-family:'Orbitron',monospace;font-size:0.7rem;color:var(--blue);letter-spacing:2px;opacity:0.7;}
+        .ag2{font-size:0.65rem;color:var(--grey);letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(0,212,255,0.2);padding:2px 8px;font-family:'Orbitron',monospace;}
+        .at{font-family:'Orbitron',monospace;font-size:1.2rem;font-weight:700;color:var(--white);letter-spacing:2px;margin-bottom:6px;}
+        .ad{font-size:0.82rem;color:var(--grey);line-height:1.6;}
+
+        .nr{text-align:center;padding:60px 20px;font-family:'Orbitron',monospace;color:var(--grey);letter-spacing:3px;font-size:0.85rem;grid-column:1/-1;}
+        .nr i{font-size:2rem;color:rgba(0,212,255,0.3);display:block;margin-bottom:16px;}
+
+        .mo{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(2,8,24,0.92);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px);padding:20px;}
+        .mo.on{display:flex;}
+        .mm{background:#040f24;border:1px solid rgba(0,212,255,0.3);max-width:560px;width:100%;position:relative;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 24px,100% 100%,24px 100%,0 calc(100% - 24px));animation:mi 0.3s ease forwards;}
+        @keyframes mi{from{opacity:0;transform:scale(0.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+        .mm::before{content:'';position:absolute;top:0;right:0;width:24px;height:24px;background:var(--blue);clip-path:polygon(100% 0,0 0,100% 100%);opacity:0.5;}
+        .mc{position:absolute;top:12px;left:14px;background:none;border:none;color:var(--grey);font-size:1.2rem;cursor:pointer;transition:color 0.3s;z-index:10;font-family:'Orbitron',monospace;}
+        .mc:hover{color:var(--blue);}
+        .mimg{width:100%;aspect-ratio:1;max-height:220px;object-fit:cover;display:block;filter:brightness(0.8);}
+        .mb{padding:24px;}
+        .mmt{display:flex;justify-content:space-between;margin-bottom:10px;}
+        .myr{font-family:'Orbitron',monospace;font-size:0.7rem;color:var(--blue);letter-spacing:2px;}
+        .mgn{font-size:0.65rem;color:var(--grey);border:1px solid rgba(0,212,255,0.2);padding:2px 8px;font-family:'Orbitron',monospace;}
+        .mtitle{font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:700;color:var(--white);letter-spacing:3px;margin-bottom:8px;}
+        .mdesc{font-size:0.9rem;color:var(--grey);line-height:1.7;margin-bottom:20px;}
+        .mdiv{height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,0.3),transparent);margin-bottom:20px;}
+        .mptitle{font-family:'Orbitron',monospace;font-size:0.65rem;letter-spacing:4px;color:rgba(0,212,255,0.5);margin-bottom:14px;text-transform:uppercase;}
+        .mp{display:flex;flex-wrap:wrap;gap:10px;}
+        .mpb{display:flex;align-items:center;gap:8px;padding:10px 16px;text-decoration:none;font-family:'Orbitron',monospace;font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;transition:all 0.3s;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);}
+        .sp{background:rgba(29,185,84,0.1);border:1px solid rgba(29,185,84,0.3);color:#1db954;}
+        .sp:hover{background:rgba(29,185,84,0.2);box-shadow:0 0 15px rgba(29,185,84,0.3);}
+        .yt{background:rgba(255,0,0,0.08);border:1px solid rgba(255,0,0,0.25);color:#ff4444;}
+        .yt:hover{background:rgba(255,0,0,0.15);box-shadow:0 0 15px rgba(255,0,0,0.3);}
+        .pf{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#f0f0f0;}
+        .pf:hover{background:rgba(255,255,255,0.1);box-shadow:0 0 15px rgba(255,255,255,0.15);}
+
+        footer{text-align:center;padding:30px 5%;border-top:1px solid rgba(0,212,255,0.1);position:relative;z-index:1;}
+        .fl{font-family:'Orbitron',monospace;font-size:0.8rem;letter-spacing:4px;color:var(--blue);opacity:0.5;margin-bottom:8px;}
+        footer p{font-size:0.75rem;color:var(--grey);letter-spacing:2px;}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Exo 2', sans-serif;
-            background: var(--bg);
-            color: var(--white);
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* ========= GRID BACKGROUND ========= */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image:
-                linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
-            background-size: 60px 60px;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* ========= ANIMATED LINES ========= */
-        .lines-bg {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .line-h {
-            position: absolute;
-            left: 0; width: 100%; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--blue), transparent);
-            opacity: 0;
-            animation: scan-h 8s linear infinite;
-        }
-        .line-h:nth-child(1) { top: 20%; animation-delay: 0s; }
-        .line-h:nth-child(2) { top: 50%; animation-delay: 3s; }
-        .line-h:nth-child(3) { top: 80%; animation-delay: 6s; }
-
-        .line-v {
-            position: absolute;
-            top: 0; height: 100%; width: 1px;
-            background: linear-gradient(180deg, transparent, var(--blue), transparent);
-            opacity: 0;
-            animation: scan-v 10s linear infinite;
-        }
-        .line-v:nth-child(4) { left: 25%; animation-delay: 1s; }
-        .line-v:nth-child(5) { left: 75%; animation-delay: 5s; }
-
-        @keyframes scan-h {
-            0% { opacity: 0; transform: translateX(-100%); }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { opacity: 0; transform: translateX(100%); }
-        }
-        @keyframes scan-v {
-            0% { opacity: 0; transform: translateY(-100%); }
-            10% { opacity: 0.4; }
-            90% { opacity: 0.4; }
-            100% { opacity: 0; transform: translateY(100%); }
-        }
-
-        /* Corner decorations */
-        .corner {
-            position: fixed;
-            width: 80px; height: 80px;
-            z-index: 1; pointer-events: none;
-            opacity: 0.5;
-        }
-        .corner-tl { top: 20px; left: 20px; border-top: 2px solid var(--blue); border-left: 2px solid var(--blue); }
-        .corner-tr { top: 20px; right: 20px; border-top: 2px solid var(--blue); border-right: 2px solid var(--blue); }
-        .corner-bl { bottom: 20px; left: 20px; border-bottom: 2px solid var(--blue); border-left: 2px solid var(--blue); }
-        .corner-br { bottom: 20px; right: 20px; border-bottom: 2px solid var(--blue); border-right: 2px solid var(--blue); }
-
-        .nav-center-logo {
-            height: 44px;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 0 10px var(--blue-glow));
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* ========= NAV ========= */
-        nav {
-            position: fixed; top: 0; width: 100%;
-            padding: 1.2rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000;
-            background: rgba(2, 8, 24, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-        }
-
-        .nav-logo {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem; font-weight: 700;
-            color: var(--blue);
-            text-decoration: none;
-            letter-spacing: 3px;
-            text-shadow: 0 0 20px var(--blue-glow);
-            display: flex; align-items: center; gap: 12px;
-        }
-
-        .nav-logo img {
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            border: 1px solid var(--blue);
-            box-shadow: 0 0 10px var(--blue-glow);
-        }
-
-        .back-btn {
-            display: flex; align-items: center; gap: 8px;
-            color: #ffd700;
-            text-decoration: none;
-            font-size: 0.9rem; letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            font-family: 'Orbitron', monospace;
-            border: 1px solid rgba(255,215,0,0.4);
-            padding: 8px 18px;
-            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-            box-shadow: 0 0 15px rgba(255,215,0,0.15);
-        }
-        .back-btn:hover {
-            color: #ffd700;
-            background: rgba(255,215,0,0.08);
-            border-color: #ffd700;
-            box-shadow: 0 0 25px rgba(255,215,0,0.35);
-        }
-        .back-btn i { font-size: 0.8rem; }
-
-        /* ========= ALBUM MODAL ========= */
-        .album-modal-overlay {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(2,8,24,0.92);
-            z-index: 9999;
-            display: none;
-            align-items: center; justify-content: center;
-            backdrop-filter: blur(8px);
-            padding: 20px;
-        }
-        .album-modal-overlay.active { display: flex; }
-
-        .album-modal {
-            background: #040f24;
-            border: 1px solid rgba(0,212,255,0.3);
-            max-width: 560px; width: 100%;
-            position: relative;
-            clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
-            animation: modal-in 0.3s ease forwards;
-        }
-        @keyframes modal-in {
-            from { opacity: 0; transform: scale(0.92) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .album-modal::before {
-            content: '';
-            position: absolute; top: 0; right: 0;
-            width: 24px; height: 24px;
-            background: var(--blue);
-            clip-path: polygon(100% 0, 0 0, 100% 100%);
-            opacity: 0.5;
-        }
-        .modal-cover {
-            width: 100%; aspect-ratio: 1;
-            max-height: 220px;
-            object-fit: cover;
-            display: block;
-            filter: brightness(0.8);
-        }
-        .modal-body { padding: 24px; }
-        .modal-meta {
-            display: flex; justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .modal-year {
-            font-family: 'Orbitron', monospace;
-            font-size: 0.7rem; color: var(--blue); letter-spacing: 2px;
-        }
-        .modal-genre {
-            font-size: 0.65rem; color: var(--grey);
-            border: 1px solid rgba(0,212,255,0.2);
-            padding: 2px 8px; font-family: 'Orbitron', monospace;
-            letter-spacing: 1px;
-        }
-        .modal-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.4rem; font-weight: 700;
-            color: var(--white); letter-spacing: 3px;
-            margin-bottom: 8px;
-            text-shadow: 0 0 15px rgba(0,212,255,0.3);
-        }
-        .modal-desc {
-            font-size: 0.9rem; color: var(--grey);
-            line-height: 1.7; margin-bottom: 20px;
-        }
-        .modal-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent);
-            margin-bottom: 20px;
-        }
-        .modal-platforms-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 0.65rem; letter-spacing: 4px;
-            color: rgba(0,212,255,0.5); margin-bottom: 14px;
-            text-transform: uppercase;
-        }
-        .modal-platforms {
-            display: flex; flex-wrap: wrap; gap: 10px;
-        }
-        .modal-platform-btn {
-            display: flex; align-items: center; gap: 8px;
-            padding: 10px 16px;
-            text-decoration: none;
-            font-family: 'Orbitron', monospace;
-            font-size: 0.65rem; letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            border-radius: 0;
-            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-        }
-        .modal-platform-btn.spotify {
-            background: rgba(29,185,84,0.1);
-            border: 1px solid rgba(29,185,84,0.3);
-            color: #1db954;
-        }
-        .modal-platform-btn.spotify:hover {
-            background: rgba(29,185,84,0.2);
-            box-shadow: 0 0 15px rgba(29,185,84,0.3);
-        }
-        .modal-platform-btn.youtube {
-            background: rgba(255,0,0,0.08);
-            border: 1px solid rgba(255,0,0,0.25);
-            color: #ff4444;
-        }
-        .modal-platform-btn.youtube:hover {
-            background: rgba(255,0,0,0.15);
-            box-shadow: 0 0 15px rgba(255,0,0,0.3);
-        }
-        .modal-platform-btn.apple {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.15);
-            color: #f0f0f0;
-        }
-        .modal-platform-btn.apple:hover {
-            background: rgba(255,255,255,0.1);
-            box-shadow: 0 0 15px rgba(255,255,255,0.15);
-        }
-        .modal-close {
-            position: absolute; top: 12px; left: 14px;
-            background: none; border: none;
-            color: var(--grey); font-size: 1.2rem;
-            cursor: pointer; transition: color 0.3s;
-            z-index: 10; font-family: 'Orbitron', monospace;
-        }
-        .modal-close:hover { color: var(--blue); }
-
-        /* ========= HERO LOGO ========= */
-        .hero-logo {
-            margin-bottom: 28px;
-        }
-
-        .hero-logo img {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            border-radius: 50%;
-            border: 2px solid rgba(0,212,255,0.4);
-            box-shadow: 0 0 30px var(--blue-glow), 0 0 60px rgba(0,100,255,0.2);
-            animation: logo-pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes logo-pulse {
-            0%, 100% { box-shadow: 0 0 30px var(--blue-glow), 0 0 60px rgba(0,100,255,0.2); }
-            50% { box-shadow: 0 0 50px var(--blue-glow), 0 0 90px rgba(0,100,255,0.4); }
-        }
-
-        /* ========= SEARCH ========= */
-        .search-wrapper {
-            margin-top: 28px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .search-box {
-            position: relative;
-            width: 100%;
-            max-width: 480px;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 16px;
-            color: var(--blue);
-            font-size: 0.85rem;
-            opacity: 0.7;
-            z-index: 1;
-        }
-
-        #searchInput {
-            width: 100%;
-            padding: 14px 50px 14px 44px;
-            background: rgba(4,15,36,0.9);
-            border: 1px solid rgba(0,212,255,0.25);
-            border-radius: 0;
-            color: var(--white);
-            font-family: 'Orbitron', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            outline: none;
-            transition: all 0.3s ease;
-            clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-        }
-
-        #searchInput::placeholder {
-            color: var(--grey);
-            letter-spacing: 2px;
-        }
-
-        #searchInput:focus {
-            border-color: var(--blue);
-            box-shadow: 0 0 20px var(--blue-glow);
-            background: rgba(0,212,255,0.05);
-        }
-
-        .search-clear {
-            position: absolute;
-            right: 14px;
-            background: none;
-            border: none;
-            color: var(--grey);
-            font-size: 0.8rem;
-            cursor: pointer;
-            display: none;
-            transition: color 0.3s ease;
-        }
-
-        .search-clear:hover { color: var(--blue); }
-        .search-clear.visible { display: block; }
-
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            font-family: 'Orbitron', monospace;
-            color: var(--grey);
-            letter-spacing: 3px;
-            font-size: 0.85rem;
-        }
-
-        .no-results i {
-            font-size: 2rem;
-            color: rgba(0,212,255,0.3);
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        /* ========= HERO ========= */
-        .hero {
-            padding: 140px 5% 60px;
-            text-align: center;
-            position: relative; z-index: 1;
-        }
-
-        .hero-label {
-            font-family: 'Orbitron', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 8px;
-            color: var(--blue);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            opacity: 0.7;
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            font-weight: 900;
-            letter-spacing: 6px;
-            color: var(--white);
-            text-transform: uppercase;
-            text-shadow: 0 0 40px var(--blue-glow), 0 0 80px rgba(0,100,255,0.3);
-            margin-bottom: 16px;
-            line-height: 1.1;
-        }
-
-        .hero h1 span { color: var(--blue); }
-
-        .hero-line {
-            width: 200px; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--blue), transparent);
-            margin: 24px auto;
-            box-shadow: 0 0 10px var(--blue);
-        }
-
-        .hero-count {
-            font-family: 'Orbitron', monospace;
-            font-size: 0.8rem;
-            color: var(--grey);
-            letter-spacing: 4px;
-        }
-
-        /* ========= FILTERS ========= */
-        .filters {
-            display: flex; justify-content: center;
-            gap: 12px; flex-wrap: wrap;
-            padding: 0 5% 50px;
-            position: relative; z-index: 1;
-        }
-
-        .filter-btn {
-            padding: 8px 24px;
-            background: transparent;
-            border: 1px solid rgba(0,212,255,0.25);
-            color: var(--grey);
-            font-family: 'Orbitron', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: rgba(0,212,255,0.1);
-            border-color: var(--blue);
-            color: var(--blue);
-            box-shadow: 0 0 15px var(--blue-glow);
-        }
-
-        /* ========= ALBUMS GRID ========= */
-        .albums-section {
-            padding: 0 5% 100px;
-            position: relative; z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .albums-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        /* ========= ALBUM CARD ========= */
-        .album-card {
-            position: relative;
-            background: rgba(4, 15, 36, 0.8);
-            border: 1px solid rgba(0,212,255,0.15);
-            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
-            transition: all 0.4s ease;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: card-in 0.6s ease forwards;
-        }
-
-        .album-card:nth-child(1) { animation-delay: 0.1s; }
-        .album-card:nth-child(2) { animation-delay: 0.2s; }
-        .album-card:nth-child(3) { animation-delay: 0.3s; }
-        .album-card:nth-child(4) { animation-delay: 0.4s; }
-        .album-card:nth-child(5) { animation-delay: 0.5s; }
-
-        @keyframes card-in {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .album-card::before {
-            content: '';
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(0,212,255,0.05) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .album-card:hover {
-            border-color: var(--blue);
-            box-shadow: 0 0 30px var(--blue-glow), inset 0 0 30px rgba(0,212,255,0.03);
-            transform: translateY(-8px);
-        }
-
-        /* Corner accent */
-        .album-card::after {
-            content: '';
-            position: absolute; top: 0; right: 0;
-            width: 20px; height: 20px;
-            background: var(--blue);
-            clip-path: polygon(100% 0, 0 0, 100% 100%);
-            opacity: 0.6;
-        }
-
-        .album-cover {
-            width: 100%; aspect-ratio: 1;
-            position: relative; overflow: hidden;
-            background: var(--bg2);
-        }
-
-        .album-cover img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            filter: brightness(0.85) saturate(0.9);
-        }
-
-        .album-card:hover .album-cover img {
-            transform: scale(1.05);
-            filter: brightness(1) saturate(1.1);
-        }
-
-        /* Coming soon overlay */
-        .coming-soon-overlay {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(2,8,24,0.85);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            gap: 12px;
-        }
-
-        .coming-soon-icon {
-            font-size: 3rem;
-            color: var(--blue);
-            text-shadow: 0 0 20px var(--blue);
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { text-shadow: 0 0 20px var(--blue); }
-            50% { text-shadow: 0 0 40px var(--blue), 0 0 60px var(--blue-glow); }
-        }
-
-        .coming-soon-text {
-            font-family: 'Orbitron', monospace;
-            font-size: 0.8rem; letter-spacing: 4px;
-            color: var(--blue); text-transform: uppercase;
-        }
-
-        /* Scan line on hover */
-        .scan-line {
-            position: absolute; top: -100%; left: 0;
-            width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--blue), transparent);
-            transition: top 0.4s ease;
-            opacity: 0.6;
-        }
-
-        .album-card:hover .scan-line { top: 100%; }
-
-        .album-info {
-            padding: 22px 20px 20px;
-        }
-
-        .album-meta {
-            display: flex; justify-content: space-between;
-            align-items: center; margin-bottom: 10px;
-        }
-
-        .album-year {
-            font-family: 'Orbitron', monospace;
-            font-size: 0.7rem; color: var(--blue);
-            letter-spacing: 2px; opacity: 0.7;
-        }
-
-        .album-genre {
-            font-size: 0.65rem;
-            color: var(--grey);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: 1px solid rgba(0,212,255,0.2);
-            padding: 2px 8px;
-            font-family: 'Orbitron', monospace;
-        }
-
-        .album-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.2rem; font-weight: 700;
-            color: var(--white);
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-            text-shadow: 0 0 10px rgba(0,212,255,0.2);
-        }
-
-        .album-desc {
-            font-size: 0.85rem;
-            color: var(--grey);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .album-btns {
-            display: flex; gap: 10px;
-        }
-
-        .btn-spotify {
-            flex: 1; display: flex; align-items: center;
-            justify-content: center; gap: 6px;
-            padding: 10px;
-            background: rgba(29, 185, 84, 0.1);
-            border: 1px solid rgba(29,185,84,0.3);
-            color: #1db954;
-            text-decoration: none;
-            font-family: 'Orbitron', monospace;
-            font-size: 0.65rem; letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-        }
-
-        .btn-spotify:hover {
-            background: rgba(29,185,84,0.2);
-            border-color: #1db954;
-            box-shadow: 0 0 15px rgba(29,185,84,0.3);
-        }
-
-        .btn-yt {
-            flex: 1; display: flex; align-items: center;
-            justify-content: center; gap: 6px;
-            padding: 10px;
-            background: rgba(255,0,0,0.08);
-            border: 1px solid rgba(255,0,0,0.25);
-            color: #ff4444;
-            text-decoration: none;
-            font-family: 'Orbitron', monospace;
-            font-size: 0.65rem; letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-        }
-
-        .btn-yt:hover {
-            background: rgba(255,0,0,0.15);
-            border-color: #ff0000;
-            box-shadow: 0 0 15px rgba(255,0,0,0.3);
-        }
-
-        /* ========= FOOTER ========= */
-        footer {
-            text-align: center;
-            padding: 30px 5%;
-            border-top: 1px solid rgba(0,212,255,0.1);
-            position: relative; z-index: 1;
-        }
-
-        .footer-logo {
-            font-family: 'Orbitron', monospace;
-            font-size: 0.8rem; letter-spacing: 4px;
-            color: var(--blue); opacity: 0.5;
-            margin-bottom: 8px;
-        }
-
-        footer p {
-            font-size: 0.75rem;
-            color: var(--grey); letter-spacing: 2px;
-        }
-
-        /* ========= RESPONSIVE ========= */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; letter-spacing: 3px; }
-            .albums-grid { grid-template-columns: 1fr; }
-            nav { padding: 1rem 4%; }
-            .nav-logo span { display: none; }
-        }
+        @media(max-width:768px){.hero h1{font-size:2rem;letter-spacing:3px;}.ag{grid-template-columns:1fr;}nav{padding:1rem 4%;}}
     </style>
 </head>
 <body>
 
-    <!-- Animated background lines -->
-    <div class="lines-bg">
-        <div class="line-h"></div>
-        <div class="line-h"></div>
-        <div class="line-h"></div>
-        <div class="line-v"></div>
-        <div class="line-v"></div>
-    </div>
+<div class="lines-bg"><div class="lh"></div><div class="lh"></div><div class="lh"></div><div class="lv"></div><div class="lv"></div></div>
+<div class="cr cr-tl"></div><div class="cr cr-tr"></div><div class="cr cr-bl"></div><div class="cr cr-br"></div>
 
-    <!-- Corner decorations -->
-    <div class="corner corner-tl"></div>
-    <div class="corner corner-tr"></div>
-    <div class="corner corner-bl"></div>
-    <div class="corner corner-br"></div>
+<nav>
+    <a href="index.html" class="back"><i class="fas fa-arrow-left"></i> Back</a>
+    <img src="Zaki_King_Music.png" alt="Zaki King Music" class="nav-logo">
+    <div style="width:80px"></div>
+</nav>
 
-    <!-- NAV -->
-    <nav>
-        <a href="index.html" class="back-btn">
-            <i class="fas fa-arrow-left"></i> Back
-        </a>
-        <img src="Zaki_King_Music.png" alt="Zaki King Music" class="nav-center-logo">
-        <div style="width:80px;"></div>
-    </nav>
-
-    <!-- HERO -->
-    <div class="hero">
-        <div class="hero-label">Discography</div>
-        <h1>ALL <span>RELEASES</span></h1>
-        <div class="hero-line"></div>
-        <div class="hero-count" id="albumCount">Loading...</div>
-
-        <!-- شريط البحث -->
-        <div class="search-wrapper">
-            <div class="search-box">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" id="searchInput" placeholder="Search releases..." autocomplete="off">
-                <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
-            </div>
+<div class="hero">
+    <div class="hlabel">Discography</div>
+    <h1>ALL <span>RELEASES</span></h1>
+    <div class="hline"></div>
+    <div class="hcount" id="hcount"></div>
+    <div class="sb-wrap">
+        <div class="sb">
+            <i class="fas fa-search si"></i>
+            <input type="text" id="si" placeholder="Search releases..." autocomplete="off">
+            <button class="sc" id="sc" onclick="clearSearch()">✕</button>
         </div>
     </div>
+</div>
 
-    <!-- FILTERS -->
-    <div class="filters">
-        <button class="filter-btn active" onclick="filterAlbums('all')">All</button>
-        <button class="filter-btn" onclick="filterAlbums('released')">Released</button>
-        <button class="filter-btn" onclick="filterAlbums('coming_soon')">Coming Soon</button>
-    </div>
+<div class="filters">
+    <button class="fb on" onclick="filterAlbums('all',this)">All</button>
+    <button class="fb" onclick="filterAlbums('released',this)">Released</button>
+    <button class="fb" onclick="filterAlbums('coming_soon',this)">Coming Soon</button>
+</div>
 
-    <!-- ALBUMS -->
-    <div class="albums-section">
-        <div class="albums-grid" id="albumsGrid"></div>
-    </div>
+<div class="as"><div class="ag" id="ag"></div></div>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-logo">ZAKI KING MUSIC</div>
-        <p>© 2026 All Rights Reserved</p>
-    </footer>
+<footer><div class="fl">ZAKI KING MUSIC</div><p>© 2026 All Rights Reserved</p></footer>
 
-    <script>
-        // ===== ALBUMS DATA مدمجة مباشرة =====
-        const ALBUMS = [
-            {
-                id: 5,
-                title: "Coming Soon",
-                description: "The next chapter is being written. Stay tuned for new music coming in 2026.",
-                cover: "Zaki_King_Music_Logo.jpg",
-                spotifyUrl: "#", youtubeUrl: "#", pushfmUrl: "#",
-                year: "2026", genre: "Unknown", status: "coming_soon"
-            },
-            {
-                id: 4,
-                title: "Steel Throne",
-                description: "Epic cinematic music based on military rhythms and powerful drums that immerses you in the atmosphere of war. Battle, victory, darkness, power.",
-                cover: "Steel_Throne.jpg",
-                spotifyUrl: "ضع رابط Spotify هنا",   // ← Steel Throne Spotify
-                youtubeUrl: "ضع رابط YouTube هنا",   // ← Steel Throne YouTube
-                pushfmUrl:  "ضع رابط Push.fm هنا",   // ← Steel Throne Push.fm
-                year: "2025", genre: "Epic / Cinematic", status: "released"
-            },
-            {
-                id: 3,
-                title: "Dimensions Of Memory",
-                description: "Orchestral ambient music based on string instruments that evokes feelings of calm, tranquility, nostalgia and peace. Emotional journey through memories.",
-                cover: "Dimensions_Of_Memory.jpg",
-                spotifyUrl: "ضع رابط Spotify هنا",   // ← Dimensions Of Memory Spotify
-                youtubeUrl: "ضع رابط YouTube هنا",   // ← Dimensions Of Memory YouTube
-                pushfmUrl:  "ضع رابط Push.fm هنا",   // ← Dimensions Of Memory Push.fm
-                year: "2024", genre: "Orchestral / Ambient", status: "released"
-            },
-            {
-                id: 1,
-                title: "The Drop",
-                description: "Electronic music based on powerful rhythms and energetic beats. Dance, bass, electronic sound design.",
-                cover: "The_Drop.png",
-                spotifyUrl: "ضع رابط Spotify هنا",   // ← The Drop Spotify
-                youtubeUrl: "ضع رابط YouTube هنا",   // ← The Drop YouTube
-                pushfmUrl:  "ضع رابط Push.fm هنا",   // ← The Drop Push.fm
-                year: "2023", genre: "Electronic", status: "released"
-            }
-        ];
-
-        // ===== MAIN SCRIPT =====
-        let currentFilter = 'all';
-        let currentSearch = '';
-
-        function renderAlbums(filter, search = '') {
-            const grid = document.getElementById('albumsGrid');
-            let filtered = filter === 'all' ? ALBUMS : ALBUMS.filter(a => a.status === filter);
-
-            // بحث شامل في كل حقول الألبوم + الوصف كلمات مفتاحية
-            if (search.trim()) {
-                const q = search.toLowerCase().trim();
-                filtered = filtered.filter(a =>
-                    a.title.toLowerCase().includes(q) ||
-                    a.genre.toLowerCase().includes(q) ||
-                    a.year.includes(q) ||
-                    a.description.toLowerCase().includes(q)
-                );
-            }
-
-            // تحديث العدد
-            const released = ALBUMS.filter(a => a.status === 'released').length;
-            const coming = ALBUMS.filter(a => a.status === 'coming_soon').length;
-            document.getElementById('albumCount').textContent =
-                `${released} Released · ${coming} Coming Soon`;
-
-            grid.innerHTML = '';
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `
-                    <div class="no-results" style="grid-column:1/-1;">
-                        <i class="fas fa-search"></i>
-                        No releases found for "${search}"
-                    </div>`;
-                return;
-            }
-
-            filtered.forEach((album, i) => {
-                const isComingSoon = album.status === 'coming_soon';
-                const card = document.createElement('div');
-                card.className = 'album-card';
-                card.setAttribute('data-status', album.status);
-                card.style.animationDelay = (i * 0.1) + 's';
-                card.style.cursor = 'pointer';
-                card.onclick = () => openModal(album);
-
-                card.innerHTML = `
-                    <div class="album-cover">
-                        <img src="${album.cover}" alt="${album.title}"
-                             onerror="this.src='Zaki_King_Music_Logo.jpg'">
-                        ${isComingSoon ? `
-                        <div class="coming-soon-overlay">
-                            <div class="coming-soon-icon">⬡</div>
-                            <div class="coming-soon-text">Coming Soon</div>
-                        </div>` : ''}
-                        <div class="scan-line"></div>
-                        <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.3);padding:4px 8px;font-family:Orbitron,monospace;font-size:0.55rem;letter-spacing:2px;color:var(--blue);">INFO →</div>
-                    </div>
-                    <div class="album-info">
-                        <div class="album-meta">
-                            <span class="album-year">${album.year}</span>
-                            <span class="album-genre">${album.genre}</span>
-                        </div>
-                        <div class="album-title">${album.title}</div>
-                        <div class="album-desc">${album.description}</div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function openModal(album) {
-            const isComingSoon = album.status === 'coming_soon';
-            const overlay = document.getElementById('albumModalOverlay');
-
-            document.getElementById('modalCover').src = album.cover;
-            document.getElementById('modalCover').onerror = function() { this.src = 'Zaki_King_Music_Logo.jpg'; };
-            document.getElementById('modalTitle').textContent = album.title;
-            document.getElementById('modalYear').textContent = album.year;
-            document.getElementById('modalGenre').textContent = album.genre;
-            document.getElementById('modalDesc').textContent = album.description;
-
-            const platforms = document.getElementById('modalPlatforms');
-            if (isComingSoon) {
-                platforms.innerHTML = `<div style="color:rgba(0,212,255,0.4);font-family:Orbitron,monospace;font-size:0.7rem;letter-spacing:3px;">NOT YET RELEASED</div>`;
-            } else {
-                platforms.innerHTML = `
-                    <a href="${album.spotifyUrl}" class="modal-platform-btn spotify" target="_blank">
-                        <i class="fab fa-spotify"></i> Spotify
-                    </a>
-                    <a href="${album.youtubeUrl}" class="modal-platform-btn youtube" target="_blank">
-                        <i class="fab fa-youtube"></i> YouTube
-                    </a>
-                    <a href="${album.pushfmUrl}" class="modal-platform-btn apple" target="_blank">
-                        <i class="fas fa-music"></i> Push.fm
-                    </a>
-                `;
-            }
-
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('albumModalOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        document.getElementById('albumModalOverlay').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-
-        function filterAlbums(filter) {
-            currentFilter = filter;
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            renderAlbums(filter, currentSearch);
-        }
-
-        function clearSearch() {
-            document.getElementById('searchInput').value = '';
-            currentSearch = '';
-            document.getElementById('searchClear').classList.remove('visible');
-            renderAlbums(currentFilter, '');
-        }
-
-        document.getElementById('searchInput').addEventListener('input', function() {
-            currentSearch = this.value;
-            document.getElementById('searchClear').classList.toggle('visible', this.value.length > 0);
-            renderAlbums(currentFilter, currentSearch);
-        });
-
-        // تشغيل مباشر — albums.js محمّل قبلنا
-        renderAlbums('all');
-    </script>
-
-    <!-- ALBUM MODAL -->
-    <div class="album-modal-overlay" id="albumModalOverlay">
-        <div class="album-modal" id="albumModal">
-            <button class="modal-close" onclick="closeModal()">✕</button>
-            <img class="modal-cover" id="modalCover" src="" alt="">
-            <div class="modal-body">
-                <div class="modal-meta">
-                    <span class="modal-year" id="modalYear"></span>
-                    <span class="modal-genre" id="modalGenre"></span>
-                </div>
-                <div class="modal-title" id="modalTitle"></div>
-                <div class="modal-desc" id="modalDesc"></div>
-                <div class="modal-divider"></div>
-                <div class="modal-platforms-title">Listen On</div>
-                <div class="modal-platforms" id="modalPlatforms"></div>
-            </div>
+<!-- MODAL -->
+<div class="mo" id="mo">
+    <div class="mm">
+        <button class="mc" onclick="closeModal()">✕</button>
+        <img class="mimg" id="mimg" src="" alt="">
+        <div class="mb">
+            <div class="mmt"><span class="myr" id="myr"></span><span class="mgn" id="mgn"></span></div>
+            <div class="mtitle" id="mtitle"></div>
+            <div class="mdesc" id="mdesc"></div>
+            <div class="mdiv"></div>
+            <div class="mptitle">Listen On</div>
+            <div class="mp" id="mp"></div>
         </div>
     </div>
+</div>
+
+<script>
+var ALBUMS = [
+    {
+        id:5, title:"Coming Soon",
+        description:"The next chapter is being written. Stay tuned for new music coming in 2026.",
+        cover:"Zaki_King_Music_Logo.jpg",
+        spotifyUrl:"#", youtubeUrl:"#", pushfmUrl:"#",
+        year:"2026", genre:"Unknown", status:"coming_soon"
+    },
+    {
+        id:4, title:"Steel Throne",
+        description:"Epic cinematic music based on military rhythms and powerful drums. Battle, victory, darkness, power, war.",
+        cover:"Steel_Throne.jpg",
+        spotifyUrl:"ضع رابط Spotify هنا",   // ← Steel Throne Spotify
+        youtubeUrl:"ضع رابط YouTube هنا",   // ← Steel Throne YouTube
+        pushfmUrl: "ضع رابط Push.fm هنا",   // ← Steel Throne Push.fm
+        year:"2025", genre:"Epic / Cinematic", status:"released"
+    },
+    {
+        id:3, title:"Dimensions Of Memory",
+        description:"Orchestral ambient music based on strings. Calm, tranquility, nostalgia, peace, emotional, memories.",
+        cover:"Dimensions_Of_Memory.jpg",
+        spotifyUrl:"ضع رابط Spotify هنا",   // ← Dimensions Of Memory Spotify
+        youtubeUrl:"ضع رابط YouTube هنا",   // ← Dimensions Of Memory YouTube
+        pushfmUrl: "ضع رابط Push.fm هنا",   // ← Dimensions Of Memory Push.fm
+        year:"2024", genre:"Orchestral / Ambient", status:"released"
+    },
+    {
+        id:1, title:"The Drop",
+        description:"Electronic music based on powerful rhythms and energetic beats. Dance, bass, electronic.",
+        cover:"The_Drop.png",
+        spotifyUrl:"ضع رابط Spotify هنا",   // ← The Drop Spotify
+        youtubeUrl:"ضع رابط YouTube هنا",   // ← The Drop YouTube
+        pushfmUrl: "ضع رابط Push.fm هنا",   // ← The Drop Push.fm
+        year:"2023", genre:"Electronic", status:"released"
+    }
+];
+
+var cf = 'all', cs = '';
+
+function render(filter, search) {
+    var grid = document.getElementById('ag');
+    var list = filter === 'all' ? ALBUMS.slice() : ALBUMS.filter(function(a){return a.status===filter;});
+    if (search && search.trim()) {
+        var q = search.toLowerCase().trim();
+        list = list.filter(function(a){
+            return a.title.toLowerCase().indexOf(q)>=0 ||
+                   a.genre.toLowerCase().indexOf(q)>=0 ||
+                   a.year.indexOf(q)>=0 ||
+                   a.description.toLowerCase().indexOf(q)>=0;
+        });
+    }
+    var rel = ALBUMS.filter(function(a){return a.status==='released';}).length;
+    var com = ALBUMS.filter(function(a){return a.status==='coming_soon';}).length;
+    document.getElementById('hcount').textContent = rel+' Released · '+com+' Coming Soon';
+    grid.innerHTML = '';
+    if (!list.length) {
+        grid.innerHTML = '<div class="nr"><i class="fas fa-search"></i>No results for "'+search+'"</div>';
+        return;
+    }
+    list.forEach(function(album, i) {
+        var cs2 = album.status === 'coming_soon';
+        var d = document.createElement('div');
+        d.className = 'ac';
+        d.style.cursor = 'pointer';
+        d.style.animationDelay = (i*0.1)+'s';
+        d.onclick = function(){openModal(album);};
+        d.innerHTML =
+            '<div class="acover">'+
+                '<img src="'+album.cover+'" alt="'+album.title+'" onerror="this.src=\'Zaki_King_Music_Logo.jpg\'">'+
+                (cs2?'<div class="cso"><div class="csi">⬡</div><div class="cst">Coming Soon</div></div>':'')+
+                '<div class="sl"></div>'+
+                '<div class="itag">INFO →</div>'+
+            '</div>'+
+            '<div class="ai">'+
+                '<div class="am"><span class="ay">'+album.year+'</span><span class="ag2">'+album.genre+'</span></div>'+
+                '<div class="at">'+album.title+'</div>'+
+                '<div class="ad">'+album.description+'</div>'+
+            '</div>';
+        grid.appendChild(d);
+    });
+}
+
+function openModal(album) {
+    var cs2 = album.status==='coming_soon';
+    document.getElementById('mimg').src = album.cover;
+    document.getElementById('mimg').onerror = function(){this.src='Zaki_King_Music_Logo.jpg';};
+    document.getElementById('mtitle').textContent = album.title;
+    document.getElementById('myr').textContent = album.year;
+    document.getElementById('mgn').textContent = album.genre;
+    document.getElementById('mdesc').textContent = album.description;
+    var mp = document.getElementById('mp');
+    mp.innerHTML = cs2
+        ? '<div style="color:rgba(0,212,255,0.4);font-family:Orbitron,monospace;font-size:0.7rem;letter-spacing:3px;">NOT YET RELEASED</div>'
+        : '<a href="'+album.spotifyUrl+'" class="mpb sp" target="_blank"><i class="fab fa-spotify"></i> Spotify</a>'+
+          '<a href="'+album.youtubeUrl+'" class="mpb yt" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>'+
+          '<a href="'+album.pushfmUrl+'" class="mpb pf" target="_blank"><i class="fas fa-music"></i> Push.fm</a>';
+    document.getElementById('mo').classList.add('on');
+    document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+    document.getElementById('mo').classList.remove('on');
+    document.body.style.overflow='';
+}
+
+document.getElementById('mo').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+function filterAlbums(f,btn){
+    cf=f;
+    document.querySelectorAll('.fb').forEach(function(b){b.classList.remove('on');});
+    if(btn)btn.classList.add('on');
+    render(cf,cs);
+}
+
+function clearSearch(){
+    document.getElementById('si').value='';
+    cs='';
+    document.getElementById('sc').classList.remove('vis');
+    render(cf,'');
+}
+
+document.getElementById('si').addEventListener('input',function(){
+    cs=this.value;
+    document.getElementById('sc').classList.toggle('vis',this.value.length>0);
+    render(cf,cs);
+});
+
+render('all','');
+</script>
 </body>
 </html>
