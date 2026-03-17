@@ -49,29 +49,15 @@ const ALBUMS = [
         status: "released"
     },
 
-    // --- ألبوم 2 ---
+    // --- ألبوم 1 ---
     {
-        id: 2,
+        id: 1,
         title: "The Drop",
         description: "Electronic music based on powerful rhythms and beats.",
         cover: "The_Drop.png",
         spotifyUrl: "https://open.spotify.com/track/78DU6QcJaSGLB8cUQASYPn?si=_5yEO4J2R1uHWRmm0hiTpw",
         youtubeUrl: "https://www.youtube.com/@zakikingmusic",
         pushfmUrl: "https://push.fm/YOUR_THE_DROP_LINK",
-        year: "2023",
-        genre: "Electronic",
-        status: "released"
-    },
-
-    // --- ألبوم 1 ---
-    {
-        id: 1,
-        title: "MONSTER",
-        description: "The track that started it all — raw energy and power.",
-        cover: "Zaki_King_Music_Logo.jpg",
-        spotifyUrl: "https://open.spotify.com/artist/5SY0LBMYUXGyoj2UwxLSXu/",
-        youtubeUrl: "https://www.youtube.com/@zakikingmusic",
-        pushfmUrl: "https://push.fm/YOUR_MONSTER_LINK",
         year: "2023",
         genre: "Electronic",
         status: "released"

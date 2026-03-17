@@ -757,7 +757,7 @@
         <p>© 2026 All Rights Reserved</p>
     </footer>
 
-    <!-- Load albums data -->
+    <!-- Load albums data FIRST -->
     <script src="albums.js"></script>
     <script>
         let currentFilter = 'all';
@@ -765,11 +765,17 @@
 
         function renderAlbums(filter, search = '') {
             const grid = document.getElementById('albumsGrid');
+
+            if (typeof ALBUMS === 'undefined') {
+                setTimeout(() => renderAlbums(filter, search), 100);
+                return;
+            }
+
             let filtered = filter === 'all' ? ALBUMS : ALBUMS.filter(a => a.status === filter);
 
-            // تطبيق البحث
+            // بحث شامل — عنوان + نوع + سنة + وصف كاملاً (كلمات مفتاحية تلقائية)
             if (search.trim()) {
-                const q = search.toLowerCase();
+                const q = search.toLowerCase().trim();
                 filtered = filtered.filter(a =>
                     a.title.toLowerCase().includes(q) ||
                     a.genre.toLowerCase().includes(q) ||
@@ -814,7 +820,6 @@
                             <div class="coming-soon-text">Coming Soon</div>
                         </div>` : ''}
                         <div class="scan-line"></div>
-                        <!-- أيقونة نقر -->
                         <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.3);padding:4px 8px;font-family:Orbitron,monospace;font-size:0.55rem;letter-spacing:2px;color:var(--blue);">INFO →</div>
                     </div>
                     <div class="album-info">
@@ -830,10 +835,8 @@
             });
         }
 
-        // ===== ALBUM MODAL =====
         function openModal(album) {
             const isComingSoon = album.status === 'coming_soon';
-            const modal = document.getElementById('albumModal');
             const overlay = document.getElementById('albumModalOverlay');
 
             document.getElementById('modalCover').src = album.cover;
@@ -869,7 +872,6 @@
             document.body.style.overflow = '';
         }
 
-        // إغلاق بالضغط خارج الـ modal
         document.getElementById('albumModalOverlay').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
@@ -890,15 +892,11 @@
 
         document.getElementById('searchInput').addEventListener('input', function() {
             currentSearch = this.value;
-            const clearBtn = document.getElementById('searchClear');
-            if (this.value.length > 0) {
-                clearBtn.classList.add('visible');
-            } else {
-                clearBtn.classList.remove('visible');
-            }
+            document.getElementById('searchClear').classList.toggle('visible', this.value.length > 0);
             renderAlbums(currentFilter, currentSearch);
         });
 
+        // تشغيل مباشر — albums.js محمّل قبلنا
         renderAlbums('all');
     </script>
 
