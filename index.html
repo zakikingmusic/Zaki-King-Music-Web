@@ -22,15 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&family=Audiowide&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="geometric-bg">
-        <div class="shape circle"></div>
-        <div class="shape square"></div>
-        <div class="shape triangle"></div>
-        <div class="shape hexagon"></div>
-        <div class="shape line line1"></div>
-        <div class="shape line line2"></div>
-        <div class="shape line line3"></div>
-    </div>
+<!-- canvas للنجوم -->
+    <canvas id="starsCanvas"></canvas>
 
     <nav>
         <div class="logo">
@@ -60,7 +53,10 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Zaki King Music</h1>
+            <!-- شعار في الوسط أعلى -->
+            <div class="hero-logo-wrap">
+                <img src="Zaki_King_Music.png" alt="Zaki King Music" class="hero-logo-img">
+            </div>
             <p class="hero-subtitle">Where Melodies Meet Emotions</p>
             <a href="#music" class="cta-btn">Discover More</a>
         </div>
@@ -716,32 +712,258 @@
     </footer>
 
     <style>
-        .releases-btn {
-            display: inline-flex;
+        /* ===== STARS CANVAS ===== */
+        #starsCanvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ===== HERO LOGO ===== */
+        .hero-logo-wrap {
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-logo-img {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(255,215,0,0.5)) drop-shadow(0 0 40px rgba(255,215,0,0.2));
+            animation: logo-float 4s ease-in-out infinite;
+        }
+        @keyframes logo-float {
+            0%, 100% { transform: translateY(0px); filter: drop-shadow(0 0 20px rgba(255,215,0,0.5)) drop-shadow(0 0 40px rgba(255,215,0,0.2)); }
+            50% { transform: translateY(-12px); filter: drop-shadow(0 0 30px rgba(255,215,0,0.8)) drop-shadow(0 0 60px rgba(255,215,0,0.4)); }
+        }
+
+        /* إخفاء geometric-bg القديم */
+        .geometric-bg { display: none !important; }
+
+        /* ===== BACK OVERLAY (ذهبي) ===== */
+        .back-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #050300;
+            z-index: 99999;
+            display: none;
             align-items: center;
-            gap: 10px;
-            padding: 1rem 3rem;
-            background: transparent;
-            border: 1px solid rgba(0, 212, 255, 0.4);
-            color: #00d4ff;
-            text-decoration: none;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .back-overlay.active { display: flex; }
+
+        .bo-grid {
+            position: absolute;
+            width: 100%; height: 100%;
+            background-image:
+                linear-gradient(rgba(255,215,0,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,215,0,0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: grid-zoom 1.2s ease-out forwards;
+        }
+        @keyframes grid-zoom {
+            from { transform: perspective(500px) rotateX(30deg) scale(2); opacity: 0; }
+            to { transform: perspective(500px) rotateX(0deg) scale(1); opacity: 1; }
+        }
+
+        .bo-lines { position: absolute; width: 100%; height: 100%; }
+        .bo-line {
+            position: absolute; height: 1px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            animation: bo-line-anim 0.8s ease-out forwards; opacity: 0;
+        }
+        .bo-line:nth-child(1) { top: 25%; width: 100%; animation-delay: 0.05s; }
+        .bo-line:nth-child(2) { top: 50%; width: 75%; left: 12%; animation-delay: 0.1s; }
+        .bo-line:nth-child(3) { top: 70%; width: 100%; animation-delay: 0.08s; }
+        .bo-line:nth-child(4) { top: 85%; width: 55%; left: 22%; animation-delay: 0.12s; }
+        @keyframes bo-line-anim {
+            0% { opacity: 0; transform: scaleX(0); }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.3; transform: scaleX(1); }
+        }
+
+        .bo-crt {
+            position: absolute; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px);
+            pointer-events: none; z-index: 4;
+        }
+
+        .bo-glitch {
+            position: absolute; width: 100%; height: 100%;
+            top: 0; left: 0; pointer-events: none; z-index: 3;
+        }
+        .bo-glitch-bar {
+            position: absolute; left: 0; width: 100%;
+            background: rgba(255,215,0,0.06);
+            animation: bo-glitch-anim 0.1s steps(1) infinite;
+        }
+        @keyframes bo-glitch-anim {
+            0%   { top: 15%; height: 2px; transform: translateX(-3px); }
+            20%  { top: 50%; height: 4px; transform: translateX(5px); }
+            40%  { top: 75%; height: 2px; transform: translateX(-2px); }
+            60%  { top: 30%; height: 5px; transform: translateX(4px); }
+            80%  { top: 88%; height: 2px; transform: translateX(-4px); }
+            100% { top: 10%; height: 3px; transform: translateX(2px); }
+        }
+
+        .bo-center {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 20px;
+        }
+        .bo-ring {
+            width: 100px; height: 100px;
+            border: 2px solid #ffd700;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 40px rgba(255,215,0,0.5), inset 0 0 40px rgba(255,215,0,0.1);
+            animation: bo-spin 1s linear infinite;
+        }
+        @keyframes bo-spin { to { transform: rotate(360deg); } }
+        .bo-ring-inner {
+            font-size: 2rem; color: #ffd700;
+            text-shadow: 0 0 20px #ffd700;
+            animation: bo-spin 1s linear infinite reverse;
+        }
+        .bo-text {
             font-family: 'Audiowide', cursive;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+            font-size: 0.75rem; letter-spacing: 6px;
+            color: #ffd700;
+            text-shadow: 0 0 15px rgba(255,215,0,0.8);
+            animation: bo-blink 0.5s ease-in-out infinite;
         }
-        .releases-btn:hover {
-            background: rgba(0, 212, 255, 0.08);
-            border-color: #00d4ff;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            transform: translateY(-3px);
+        @keyframes bo-blink { 50% { opacity: 0.4; } }
+        .bo-bar {
+            width: 280px; height: 3px;
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
         }
+        .bo-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #b8860b, #ffd700);
+            box-shadow: 0 0 10px #ffd700;
+            width: 0%; transition: width 0.05s linear;
+        }
+        .bo-percent {
+            font-family: 'Audiowide', cursive;
+            font-size: 0.7rem; color: rgba(255,215,0,0.7); letter-spacing: 3px;
+        }
+        .bo-scanline {
+            position: absolute; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.4), transparent);
+            top: -2px; animation: bo-scan 1.5s linear infinite;
+        }
+        @keyframes bo-scan { to { top: 100%; } }
     </style>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <!-- Back Overlay ذهبي -->
+    <div class="back-overlay" id="backOverlay">
+        <div class="bo-grid"></div>
+        <div class="bo-crt"></div>
+        <div class="bo-glitch"><div class="bo-glitch-bar"></div></div>
+        <div class="bo-lines">
+            <div class="bo-line"></div>
+            <div class="bo-line"></div>
+            <div class="bo-line"></div>
+            <div class="bo-line"></div>
+        </div>
+        <div class="bo-center">
+            <div class="bo-ring"><div class="bo-ring-inner">♔</div></div>
+            <div class="bo-text">RETURNING HOME</div>
+            <div class="bo-bar"><div class="bo-bar-fill" id="boBarFill"></div></div>
+            <div class="bo-percent" id="boPercent">0%</div>
+        </div>
+        <div class="bo-scanline"></div>
+    </div>
+
+    <script>
+        // ===== STARS CANVAS =====
+        const canvas = document.getElementById('starsCanvas');
+        const ctx2 = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.body.scrollHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const stars = [];
+        const STAR_COUNT = 250;
+
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight * 4,
+                r: Math.random() * 1.5 + 0.3,
+                alpha: Math.random() * 0.8 + 0.2,
+                speed: Math.random() * 0.3 + 0.05,
+                twinkleSpeed: Math.random() * 0.02 + 0.005,
+                twinkleDir: Math.random() > 0.5 ? 1 : -1,
+                color: Math.random() > 0.85 ? '#ffd700' : Math.random() > 0.7 ? '#aaddff' : '#ffffff'
+            });
+        }
+
+        function drawStars() {
+            ctx2.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(s => {
+                s.alpha += s.twinkleSpeed * s.twinkleDir;
+                if (s.alpha >= 1 || s.alpha <= 0.1) s.twinkleDir *= -1;
+                ctx2.beginPath();
+                ctx2.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx2.fillStyle = s.color;
+                ctx2.globalAlpha = s.alpha;
+                ctx2.fill();
+                // بعض النجوم لها وميض
+                if (s.r > 1.2) {
+                    ctx2.beginPath();
+                    ctx2.arc(s.x, s.y, s.r * 2.5, 0, Math.PI * 2);
+                    ctx2.fillStyle = s.color;
+                    ctx2.globalAlpha = s.alpha * 0.15;
+                    ctx2.fill();
+                }
+            });
+            ctx2.globalAlpha = 1;
+            requestAnimationFrame(drawStars);
+        }
+        drawStars();
+
+        // ===== SHOW BACK OVERLAY عند العودة من releases =====
+        window.addEventListener('pageshow', function(e) {
+            if (e.persisted || (window.performance && window.performance.navigation.type === 2)) {
+                showBackOverlay();
+            }
+        });
+
+        // كشف إذا جاء من releases.html
+        if (document.referrer.includes('releases.html')) {
+            showBackOverlay();
+        }
+
+        function showBackOverlay() {
+            const overlay = document.getElementById('backOverlay');
+            overlay.classList.add('active');
+            const bar = document.getElementById('boBarFill');
+            const percent = document.getElementById('boPercent');
+            let prog = 0;
+            const interval = setInterval(() => {
+                prog += Math.random() * 10 + 4;
+                if (prog >= 100) {
+                    prog = 100;
+                    clearInterval(interval);
+                    setTimeout(() => { overlay.classList.remove('active'); }, 200);
+                }
+                bar.style.width = prog + '%';
+                percent.textContent = Math.floor(prog) + '%';
+            }, 50);
+        }
+
+        // ===== MENU =====
         function toggleMenu() {
             const nav = document.getElementById('navLinks');
             const hamburger = document.getElementById('hamburger');
@@ -749,4 +971,12 @@
             hamburger.classList.toggle('active');
         }
         function closeMenu() {
-            const nav = document.getElementB
+            const nav = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            nav.classList.remove('open');
+            hamburger.classList.remove('active');
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
