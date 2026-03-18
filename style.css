@@ -574,8 +574,8 @@ footer p { color: var(--grey); font-size: 1rem; }
     nav { padding: 1rem 4%; }
     .logo { font-size: 1rem; gap: 0.5rem; }
     .logo-img { width: 36px; height: 36px; }
-    .nav-center-logo-link { display: none; }
-    .aw-nav-lines { display: none; }
+    .nav-center-logo-link { display: none !important; }
+    .aw-nav-lines { display: none !important; }
     .hero h1 { font-size: 2rem; letter-spacing: 1px; }
     .hero-subtitle { font-size: 1rem; margin-bottom: 2rem; }
     .cta-btn { padding: 0.9rem 2rem; font-size: 0.8rem; }
