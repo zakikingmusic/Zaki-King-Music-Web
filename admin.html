@@ -276,7 +276,10 @@ textarea{resize:vertical;min-height:72px;}
         </div>
         <div class="card">
             <div class="card-title">⚠ Danger Zone</div>
-            <button class="btn-gold" style="border-color:#ff4444;color:#ff4444;width:auto;padding:10px 24px;" onclick="clearAll()">DELETE ALL RELEASES</button>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <button class="btn-gold" style="border-color:#ffa500;color:#ffa500;width:auto;padding:10px 20px;" onclick="resetDefaults()">↺ RESET TO DEFAULT ALBUMS</button>
+                <button class="btn-gold" style="border-color:#ff4444;color:#ff4444;width:auto;padding:10px 20px;" onclick="clearAll()">✕ DELETE ALL RELEASES</button>
+            </div>
         </div>
     </div>
 </div>
@@ -292,9 +295,54 @@ let albums = [];
 let editId = null;
 let cdInterval = null;
 
+// ===== الألبومات الموجودة مسبقاً في الموقع =====
+const DEFAULT_ALBUMS = [
+    {
+        id:1001, title:"Coming Soon",
+        description:"The next chapter is being written. Stay tuned for new music coming in 2026.",
+        cover:"Zaki_King_Music_Logo.jpg", coverData:'',
+        spotifyUrl:"#", youtubeUrl:"#", pushfmUrl:"#",
+        year:"2026", genre:"Unknown", status:"coming_soon", releaseDate:''
+    },
+    {
+        id:1002, title:"Steel Throne",
+        description:"Epic cinematic music based on military rhythms and powerful drums. Battle, victory, darkness, power, war.",
+        cover:"Steel_Throne.jpg", coverData:'',
+        spotifyUrl:"ضع رابط Spotify هنا",
+        youtubeUrl:"ضع رابط YouTube هنا",
+        pushfmUrl:"ضع رابط Push.fm هنا",
+        year:"2026", genre:"Epic / Cinematic", status:"released", releaseDate:''
+    },
+    {
+        id:1003, title:"Dimensions Of Memory",
+        description:"Orchestral ambient music based on strings. Calm, tranquility, nostalgia, peace, emotional, memories.",
+        cover:"Dimensions_Of_Memory.jpg", coverData:'',
+        spotifyUrl:"ضع رابط Spotify هنا",
+        youtubeUrl:"ضع رابط YouTube هنا",
+        pushfmUrl:"ضع رابط Push.fm هنا",
+        year:"2025", genre:"Orchestral / Ambient", status:"released", releaseDate:''
+    },
+    {
+        id:1004, title:"The Drop",
+        description:"Electronic music based on powerful rhythms and energetic beats. Dance, bass, electronic.",
+        cover:"The_Drop.png", coverData:'',
+        spotifyUrl:"ضع رابط Spotify هنا",
+        youtubeUrl:"ضع رابط YouTube هنا",
+        pushfmUrl:"ضع رابط Push.fm هنا",
+        year:"2025", genre:"Electronic", status:"released", releaseDate:''
+    }
+];
+
 // ============ LOAD ============
 function loadData() {
-    albums = JSON.parse(localStorage.getItem(DATA_KEY) || '[]');
+    const saved = localStorage.getItem(DATA_KEY);
+    if (saved) {
+        albums = JSON.parse(saved);
+    } else {
+        // أول مرة — حمّل الألبومات الموجودة تلقائياً
+        albums = JSON.parse(JSON.stringify(DEFAULT_ALBUMS));
+        save();
+    }
 }
 
 // ============ LOGIN ============
@@ -553,6 +601,12 @@ function changePassword() {
 function clearAll() {
     if (!confirm('DELETE ALL RELEASES? This cannot be undone!')) return;
     albums = []; save(); renderAll();
+}
+
+function resetDefaults() {
+    if (!confirm('Reset to default albums? Current data will be replaced!')) return;
+    albums = JSON.parse(JSON.stringify(DEFAULT_ALBUMS));
+    save(); renderAll();
 }
 
 function save() { localStorage.setItem(DATA_KEY, JSON.stringify(albums)); }
